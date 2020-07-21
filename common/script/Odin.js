@@ -369,7 +369,7 @@ var Odin = (function() {
 		.withRankable(new PokerCard('BJo', 54));
 
 	/**
-	 * The base class for all roll20 wrapped object.
+	 * The base class for all roll20 wrapped objects.
 	 */
 	class Object {
 
@@ -637,6 +637,34 @@ var Odin = (function() {
 			super('page', null);
 		}
 
+		/**
+		 * @return true if the page is active. 
+		 */
+		isActive() {
+			return this.obj != null && Campaign().get('playerpageid') === this.obj.get('id');
+		}
+
+		/**
+		 * Activates the page for players.
+		 * @return the instance. 
+		 */
+		activate() {
+			if (this.obj != null && Campaign().get('playerpageid') != this.obj.get('id')) {
+				Campaign().set('playerpageid', this.obj.get('id'));
+			}
+			return this;
+		}
+
+		/**
+		 * Fetches the page with the specified name.
+		 * @param page The page to fetch.
+		 * @param name The name of the page to fetch.
+		 * @return the instance.
+		 */
+		static async fetchName(page, name) {
+			return Object.fetchProperty(page, 'name', name)
+		}
+
 	}
 
 	/**
@@ -649,6 +677,18 @@ var Odin = (function() {
 		 */
 		constructor() {
 			super('page', null);
+		}
+
+		/**
+		 * Activates the specified page.
+		 * @param page The page to activate.
+		 * @return the page.
+		 */
+		static async activate(page) {
+			await new Promise(resolve => {
+				setTimeout(() => resolve(page.activate()), 100);
+			});
+			return page;
 		}
 
 	}

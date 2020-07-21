@@ -11,7 +11,7 @@ var Deadlands = (function() {
 
 		/**
 		 * Indicates if the specified rolls is a fumble.
-		 * @parma rolls The rolls to interpret.
+		 * @param rolls The rolls to interpret.
 		 * @return true if the rolls is a fumble.
 		 */
 		static isFumble(rolls) {
@@ -25,7 +25,7 @@ var Deadlands = (function() {
 		 * @return the number rof success:
 		 *     0 : Fail
 		 *     1 : Success
-		 *     2 : Success with one degree
+		 *     2 : Success with 1 degree
 		 *     N : Success with N-1 degrees
 		 */
 		static getSuccess(value, tn) {
@@ -41,7 +41,7 @@ var Deadlands = (function() {
 		 *    -1 : Fumble
 		 *     0 : Fail
 		 *     1 : Success
-		 *     2 : Success with one degree
+		 *     2 : Success with 1 degree
 		 *     N : Success with N-1 degrees
 		 */
 		static skill(rolls, tn, modifier) {
@@ -57,10 +57,10 @@ var Deadlands = (function() {
 		 *    -1 : Fumble
 		 *     0 : Fail
 		 *     1 : Success
-		 *     2 : Success with one degree
+		 *     2 : Success with 1 degree
 		 *     N : Success with N-1 degrees
 		 */
-		static unskill(rolls, tn, modifier) {
+		static unskill(rolls, tn, modifier) {s
 			return RollInterpreter.isFumble(rolls) ? -1 : RollInterpreter.getSuccess(Math.floor(rolls.max()/2) + modifier, tn);
 		}
 	
@@ -227,7 +227,7 @@ var Deadlands = (function() {
 		}
 
 		/**
-		 * Starts the turn
+		 * Starts the turn.
 		 */
 		start() {
 			
@@ -301,6 +301,7 @@ var Deadlands = (function() {
 		 * Handles the specified roll.
 		 * @param size     The number of dices to roll.
 		 * @param dice     The type of dices to roll.
+		 * @param modifier The roll modifier to apply.
 		 * @param tn       The difficulty target number.
 		 */
 		openRoll(size, dice, modifier, tn) {
@@ -352,7 +353,7 @@ var Deadlands = (function() {
 		Rolls: Rolls,
 		TurnOrder: TurnOrder,
 		EventHandler: EventHandler,
-		handler: handler,
+		handler: handler
 	};
 
 })();

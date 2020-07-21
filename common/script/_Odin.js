@@ -341,6 +341,20 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 		return Odin.Test.assertNotEmptyArray(pages.objs);
 	})
 
+	.add("Activates page", false, async() => {
+		const start = new Odin.Page();
+		const manhattan = new Odin.Page();
+		await Odin.Page.fetchName(start, 'Start');
+		await Odin.Page.fetchName(manhattan, 'Manhattan');
+		await Odin.Pages.activate(start);
+		const check_1 = Odin.Test.assertTrue(start.isActive()) && Odin.Test.assertFalse(manhattan.isActive());
+		await Odin.Pages.activate(manhattan);
+		const check_2 = Odin.Test.assertFalse(start.isActive()) && Odin.Test.assertTrue(manhattan.isActive());
+		await Odin.Pages.activate(start);
+		const check_3 = Odin.Test.assertTrue(start.isActive()) && Odin.Test.assertFalse(manhattan.isActive());
+		return check_1 && check_2 && check_3;
+	})
+
 	// Page
 	// ------------------------------------------------------------------------
 
@@ -348,6 +362,14 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 		const page = new Odin.Page();
 		await Odin.Page.fetchId(page, _pageId_1);
 		return Odin.Test.assertNotEmptyObject(page.obj);
+	})
+
+	.add("Fetches a page by name", false, async () => {
+		const start = new Odin.Page();
+		const unknown = new Odin.Page();
+		await Odin.Page.fetchName(start, 'Start');
+		await Odin.Page.fetchName(unknown, 'unknown');
+		return Odin.Test.assertNotEmptyObject(start.obj) && Odin.Test.assertEmptyObject(unknown.obj);
 	})
 
 	// Decks
@@ -463,7 +485,11 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 	// Tokens
 	// ------------------------------------------------------------------------
 
-	.add("Finds all tokens", true, async () => { //TODO
+	.add("Finds all tokens", true, async () => {
+		//const tokens = new Odin.Tokens();
+		//await Odin.Tokens.fetchAll(tokens);
+		//return Odin.Test.assertNotEmptyArray(tokens.objs);
+		//TODO
 		//return Odin.Test.assertNotEmptyArray(new Odin.Tokens().findAll().objs);
 		return true;
 	})
@@ -497,7 +523,7 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 	.add("Fetches a character by name", false, async () => {
 		const lincoln = new Odin.Character();
 		const unknown = new Odin.Character();
-		await Odin.Character.fetchName(lincoln, 'Lincoln');
+		await Odin.Character.fetchName(lincoln, 'Abraham Lincoln');
 		await Odin.Character.fetchName(unknown, 'Unknown');
 		return Odin.Test.assertNotEmptyObject(lincoln.obj) && Odin.Test.assertEmptyObject(unknown.obj);
 	})
@@ -509,8 +535,9 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 		await Odin.Character.fetchId(npc, _characterId_2);
 		return Odin.Test.assertFalse(pc.isPlayerCharacter()) && Odin.Test.assertTrue(npc.isPlayerCharacter());
 	})
-
+	
 	;
+
 
 // The API message subscribtion.
 on('ready',function() {
