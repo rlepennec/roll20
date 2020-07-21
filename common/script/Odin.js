@@ -656,6 +656,15 @@ var Odin = (function() {
 		}
 
 		/**
+		 * Finds the active page.
+		 * @return the instance.
+		 */
+		findActive() {
+			this.findProperty('id', Campaign().get('playerpageid'));
+			return this;
+		}
+
+		/**
 		 * Fetches the page with the specified name.
 		 * @param page The page to fetch.
 		 * @param name The name of the page to fetch.

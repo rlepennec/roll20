@@ -344,14 +344,24 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 	.add("Activates page", false, async() => {
 		const start = new Odin.Page();
 		const manhattan = new Odin.Page();
+		const active = new Odin.Page();
 		await Odin.Page.fetchName(start, 'Start');
 		await Odin.Page.fetchName(manhattan, 'Manhattan');
 		await Odin.Pages.activate(start);
-		const check_1 = Odin.Test.assertTrue(start.isActive()) && Odin.Test.assertFalse(manhattan.isActive());
+		const check_1 = 
+			Odin.Test.assertTrue(start.isActive()) && 
+			Odin.Test.assertFalse(manhattan.isActive()) &&
+			active.findActive().obj.get('name') === 'Start';
 		await Odin.Pages.activate(manhattan);
-		const check_2 = Odin.Test.assertFalse(start.isActive()) && Odin.Test.assertTrue(manhattan.isActive());
+		const check_2 = 
+			Odin.Test.assertFalse(start.isActive()) &&
+			Odin.Test.assertTrue(manhattan.isActive()) &&
+			active.findActive().obj.get('name') === 'Manhattan';
 		await Odin.Pages.activate(start);
-		const check_3 = Odin.Test.assertTrue(start.isActive()) && Odin.Test.assertFalse(manhattan.isActive());
+		const check_3 =
+			Odin.Test.assertTrue(start.isActive()) && 
+			Odin.Test.assertFalse(manhattan.isActive()) &&
+			active.findActive().obj.get('name') === 'Start';
 		return check_1 && check_2 && check_3;
 	})
 
