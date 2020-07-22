@@ -430,6 +430,16 @@ var Odin = (function() {
 		}
 
 		/**
+		 * Sets the specified object.
+		 * @param obj The object to set.
+		 * @return the instance.
+		 */
+		setObject(obj) {
+			this.obj = obj;
+			return this;
+		}
+
+		/**
 		 * Finds the object with the specified identifier.
 		 * @param id The identifier of the object to find.
 		 * @return the instance.
@@ -441,26 +451,6 @@ var Odin = (function() {
 			} else {
 				this.obj = getObj(this.type, id);
 			}
-			return this;
-		}
-
-		/**
-		 * Finds the object with the specified query.
-		 * @param query The query used to find the object.
-		 * @return the instance.
-		 */
-		findObject(query) {
-			this.obj = Collections.only(this.getObjects(query));
-			return this;
-		}
-
-		/**
-		 * Sets the specified object.
-		 * @param obj The object to set.
-		 * @return the instance.
-		 */
-		setObject(obj) {
-			this.obj = obj;
 			return this;
 		}
 
@@ -478,13 +468,23 @@ var Odin = (function() {
 		}
 
 		/**
+		 * Finds the object with the specified query.
+		 * @param query The query used to find the object.
+		 * @return the instance.
+		 */
+		findQuery(query) {
+			this.obj = Collections.only(this.getObjects(query));
+			return this;
+		}
+
+		/**
 		 * Fetches the object with the specified query.
 		 * @param query The query used to find the object.
 		 * @return the instance.
 		 */
-		static async fetchObject(object, query) {
+		static async fetchQuery(object, query) {
 			await new Promise(resolve => {
-				setTimeout(() => resolve(object.findObject(query)), 100);
+				setTimeout(() => resolve(object.findQuery(query)), 100);
 			});
 			return object;
 		}
@@ -504,16 +504,6 @@ var Odin = (function() {
 		constructor(type, subtype) {
 			super(type, subtype);
 			this.objs = null;
-		}
-
-		/**
-		 * Finds the specified objects with the specified query.
-		 * @param query The query used to find the objects, null to retrieve all.
-		 * @return the matching objects.
-		 */
-		findObjects(query) {
-			this.objs = this.getObjects(query);
-			return this;
 		}
 
 		/**
@@ -537,14 +527,24 @@ var Odin = (function() {
 		}
 
 		/**
-		 * Fetches the specified objects of the specified collection.
+		 * Finds the specified objects with the specified query.
+		 * @param query The query used to find the objects.
+		 * @return the matching objects.
+		 */
+		findQuery(query) {
+			this.objs = this.getObjects(query);
+			return this;
+		}
+
+		/**
+		 * Fetches the specified objects of the specified collection with the specified query.
 		 * @param collection The collection to update. 
 		 * @param query      The query used to find the objects.
 		 * @return the collection.
 		 */
-		static async fetchObjects(collection, query) {
+		static async fetchQuery(collection, query) {
 			await new Promise(resolve => {
-				setTimeout(() => resolve(collection.findObjects(query)), 100);
+				setTimeout(() => resolve(collection.findQuery(query)), 100);
 			});
 			return collection;
 		}
@@ -561,16 +561,6 @@ var Odin = (function() {
 		 */
 		constructor() {
 			super('player', null);
-		}
-
-		/**
-		 * Finds the specified player.
-		 * @param name The name of the player to find.
-		 * @return the instance.
-		 */
-		findName(name) {
-			this.findObject({'_displayname': name});
-			return this;
 		}
 
 		/**
@@ -595,13 +585,23 @@ var Odin = (function() {
 		}
 
 		/**
+		 * Finds the specified player.
+		 * @param name The name of the player to find.
+		 * @return the instance.
+		 */
+		findName(name) {
+			this.findQuery({'_displayname': name});
+			return this;
+		}
+
+		/**
 		 * Fetches the player with the specified name.
 		 * @param player The player to fetch.
 		 * @param name   The name of the player to fetch.
 		 * @return the instance.
 		 */
 		static async fetchName(player, name) {
-			return QueriableObject.fetchObject(player, {'_displayname': name})
+			return QueriableObject.fetchQuery(player, {'_displayname': name})
 		}
 
 	}
@@ -624,7 +624,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findOnline(online) {
-			this.findObjects({'_online': online});
+			this.findQuery({'_online': online});
 			return this;
 		}
 
@@ -687,7 +687,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findActive() {
-			this.findObject({'id': Campaign().get('playerpageid')});
+			this.findQuery({'id': Campaign().get('playerpageid')});
 			return this;
 		}
 
@@ -698,7 +698,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		static async fetchName(page, name) {
-			return QueriableObject.fetchObject(page, {'name': name})
+			return QueriableObject.fetchQuery(page, {'name': name})
 		}
 
 	}
@@ -754,7 +754,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findName(name) {
-			this.findObject({'name': name});
+			this.findQuery({'name': name});
 			return this;
 		}
 
@@ -765,7 +765,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		static async fetchName(character, name) {
-			return QueriableObject.fetchObject(character, {'name': name})
+			return QueriableObject.fetchQuery(character, {'name': name})
 		}
 
 	}
@@ -818,7 +818,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findOnPage(page) {
-			this.findObjects({'_pageid': page.obj.get('id')});
+			this.findQuery({'_pageid': page.obj.get('id')});
 			return this;
 		}
 
@@ -866,7 +866,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findName(name) {
-			this.findObject({'name': name});
+			this.findQuery({'name': name});
 			return this;
 		}
 
@@ -928,7 +928,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		static async fetchName(deck, name) {
-			return QueriableObject.fetchObject(deck, {'name': name})
+			return QueriableObject.fetchQuery(deck, {'name': name})
 		}
 
 	}
@@ -1006,7 +1006,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findTable() {
-			this.objs = _.chain(this.findObjects().objs)
+			this.objs = _.chain(this.findQuery().objs)
 			             .map(obj => getObj('card', obj.get('cardid')))
 			             .reject(_.isUndefined)
 			             .value();
