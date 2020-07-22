@@ -369,9 +369,9 @@ var Odin = (function() {
 		.withRankable(new PokerCard('BJo', 54));
 
 	/**
-	 * The base class for all roll20 wrapped objects.
+	 * The base class for queriable object and objects.
 	 */
-	class Object {
+	class Queriable {
 
 		/**
 		 * @constructor.
@@ -381,6 +381,46 @@ var Odin = (function() {
 		constructor(type, subtype) {
 			this.type = type;
 			this.subtype = subtype;
+		}
+
+		/**
+		 * Gets the specified objects.
+		 * @param query The query used to get objects.
+		 * @return the objects.
+		 */
+		getObjects(query) {
+			const q = this.subtype != null ? 
+				{ _type: this.type, _subtype: this.subtype } :
+				{ _type: this.type };
+			if (query != null) {
+				Object.assign(q, query);
+			}
+			return findObjs(q)
+		}
+
+		/**
+		 * Gets the specified object.
+		 * @param query The query used to get object.
+		 * @return the object.
+		 */
+		getObject(query) {
+			return Collections.only(this.getObjects(query));
+		}
+
+	}
+
+	/**
+	 * The base class for all roll20 wrapped objects.
+	 */
+	class QueriableObject extends Queriable {
+
+		/**
+		 * @constructor.
+		 * @param type    The type of the object.
+		 * @param subtype The optional subtype of the object.
+		 */
+		constructor(type, subtype) {
+			super(type, subtype);
 			this.obj = null;
 		}
 
@@ -400,16 +440,12 @@ var Odin = (function() {
 		}
 
 		/**
-		 * Finds the object with the specified property.
-		 * @param key   The name of the property used to query the object.
-		 * @param value The value of the property used to query the object.
+		 * Finds the object with the specified query.
+		 * @param query The query used to find the object.
 		 * @return the instance.
 		 */
-		findProperty(key, value) {
-			const query = this.subtype != null ? { _type: this.type, _subtype: this.subtype } : { _type: this.type };
-			query[key] = value;
-			const objs = findObjs(query);
-			this.obj = Collections.only(objs);
+		findObject(query) {
+			this.obj = Collections.only(this.getObjects(query));
 			return this;
 		}
 
@@ -437,14 +473,13 @@ var Odin = (function() {
 		}
 
 		/**
-		 * Fetches the object with the specified property.
-		 * @param key   The name of the property used to query the object.
-		 * @param value The value of the property used to query the object.
+		 * Fetches the object with the specified query.
+		 * @param query The query used to find the object.
 		 * @return the instance.
 		 */
-		static async fetchProperty(object, key, value) {
+		static async fetchObject(object, query) {
 			await new Promise(resolve => {
-				setTimeout(() => resolve(object.findProperty(key, value)), 100);
+				setTimeout(() => resolve(object.findObject(query)), 100);
 			});
 			return object;
 		}
@@ -454,7 +489,7 @@ var Odin = (function() {
 	/**
 	 * The base class for roll20 object collections.
 	 */
-	class Objects {
+	class QueriableObjects extends Queriable {
 
 		/**
 		 * @constructor.
@@ -462,31 +497,17 @@ var Odin = (function() {
 		 * @param subtype The optional subtype of the object.
 		 */
 		constructor(type, subtype) {
-			this.type = type;
-			this.subtype = subtype;
+			super(type, subtype);
 			this.objs = null;
 		}
 
 		/**
-		 * @return all objects.
-		 */
-		findAll() {
-			this.objs = this.subtype != null ?
-				findObjs({_type: this.type, _subtype: this.subtype}) :
-				findObjs({_type: this.type});
-			return this;
-		}
-
-		/**
-		 * Finds the objects with the specified property.
-		 * @param key   The name of property of the objects to get.
-		 * @param value The value of property of the objects to get.
+		 * Finds the specified objects with the specified query.
+		 * @param query The query used to find the objects, null to retrieve all.
 		 * @return the matching objects.
 		 */
-		findProperty(key, value) {
-			const query = this.subtype != null ? { _type: this.type, _subtype: this.subtype } : { _type: this.type };
-			query[key] = value;
-			this.objs = findObjs(query);
+		findObjects(query) {
+			this.objs = this.getObjects(query);
 			return this;
 		}
 
@@ -511,13 +532,14 @@ var Odin = (function() {
 		}
 
 		/**
-		 * Fetches all objects of the specified collection.
+		 * Fetches the specified objects of the specified collection.
 		 * @param collection The collection to update. 
+		 * @param query      The query used to find the objects.
 		 * @return the collection.
 		 */
-		static async fetchAll(collection) {
+		static async fetchObjects(collection, query) {
 			await new Promise(resolve => {
-				setTimeout(() => resolve(collection.findAll()), 100);
+				setTimeout(() => resolve(collection.findObjects(query)), 100);
 			});
 			return collection;
 		}
@@ -527,7 +549,7 @@ var Odin = (function() {
 	/**
 	 * The Player class provides features to get and manipulate a player.
 	 */
-	class Player extends Object {
+	class Player extends QueriableObject {
 
 		/**
 		 * @constructor.
@@ -542,7 +564,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findName(name) {
-			this.findProperty('_displayname', name);
+			this.findObject({'_displayname': name});
 			return this;
 		}
 
@@ -574,7 +596,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		static async fetchName(player, name) {
-			return Object.fetchProperty(player, '_displayname', name)
+			return QueriableObject.fetchObject(player, {'_displayname': name})
 		}
 
 	}
@@ -582,7 +604,7 @@ var Odin = (function() {
 	/**
 	 * The Players class provides functionnalities to get and filter players.
 	 */
-	class Players extends Objects {
+	class Players extends QueriableObjects {
 
 		/**
 		 * @constructor.
@@ -597,7 +619,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findOnline(online) {
-			this.findProperty('_online', online);
+			this.findObjects({'_online': online});
 			return this;
 		}
 
@@ -628,7 +650,7 @@ var Odin = (function() {
 	/**
 	 * The Page class provides features to get and manipulate a page.
 	 */
-	class Page extends Object {
+	class Page extends QueriableObject {
 
 		/**
 		 * @constructor.
@@ -660,7 +682,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findActive() {
-			this.findProperty('id', Campaign().get('playerpageid'));
+			this.findObject({'id': Campaign().get('playerpageid')});
 			return this;
 		}
 
@@ -671,7 +693,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		static async fetchName(page, name) {
-			return Object.fetchProperty(page, 'name', name)
+			return QueriableObject.fetchObject(page, {'name': name})
 		}
 
 	}
@@ -679,7 +701,7 @@ var Odin = (function() {
 	/**
 	 * The Pages class provides functionnalities to get and filter pages.
 	 */
-	class Pages extends Objects {
+	class Pages extends QueriableObjects {
 
 		/**
 		 * @constructor.
@@ -705,7 +727,7 @@ var Odin = (function() {
 	/**
 	 * The Character class provides features to get and manipulate a character.
 	 */
-	class Character extends Object {
+	class Character extends QueriableObject {
 
 		/**
 		 * @constructor.
@@ -720,7 +742,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findName(name) {
-			this.findProperty('name', name);
+			this.findObject({'name': name});
 			return this;
 		}
 
@@ -738,7 +760,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		static async fetchName(character, name) {
-			return Object.fetchProperty(character, 'name', name)
+			return QueriableObject.fetchObject(character, {'name': name})
 		}
 
 	}
@@ -746,7 +768,7 @@ var Odin = (function() {
 	/**
 	 * The Characters class provides functionnalities to get and filter characters.
 	 */
-	class Characters extends Objects {
+	class Characters extends QueriableObjects {
 
 		/**
 		 * @constructor.
@@ -761,7 +783,7 @@ var Odin = (function() {
 	 * The Token class provides features to get and manipulate a token.
 	 * Token must be on the table since getters only returns visible tokens.
 	 */
-	class Token extends Object {
+	class Token extends QueriableObject {
 
 		/**
 		 * @constructor.
@@ -776,7 +798,7 @@ var Odin = (function() {
 	 * The Tokens class provides functionnalities to get and filter tokens.
 	 * Tokens must be on the table since getters only returns visible tokens.
 	 */
-	class Tokens extends Objects {
+	class Tokens extends QueriableObjects {
 
 		/**
 		 * @constructor.
@@ -785,12 +807,35 @@ var Odin = (function() {
 			super('graphic', 'token');
 		}
 
+		/**
+		 * Finds tokens in the specified page.
+		 * @param page The page on which the tokens must be.
+		 * @return the instance.
+		 */
+		findOnPage(page) {
+			this.findObjects({'_pageid': page.obj.get('id')});
+			return this;
+		}
+
+		/**
+		 * Fetches tokens in the specified page.
+		 * @param tokens The tokens to update.
+		 * @param page   The page on which the tokens must be.
+		 * @return the tokens.
+		 */
+		static async fetchOnPage(tokens, page) {
+			await new Promise(resolve => {
+				setTimeout(() => resolve(tokens.findOnPage(page)), 100);
+			});
+			return tokens;
+		}
+
 	}
 
 	/**
 	 * The Deck class provides features to get and manipulate a deck.
 	 */
-	class Deck extends Object {
+	class Deck extends QueriableObject {
 
 		/**
 		 * @constructor.
@@ -816,7 +861,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findName(name) {
-			this.findProperty('name', name);
+			this.findObject({'name': name});
 			return this;
 		}
 
@@ -878,7 +923,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		static async fetchName(deck, name) {
-			return Object.fetchProperty(deck, 'name', name)
+			return QueriableObject.fetchObject(deck, {'name': name})
 		}
 
 	}
@@ -886,7 +931,7 @@ var Odin = (function() {
 	/**
 	 * The Decks class provides functionnalities to get and filter decks.
 	 */
-	class Decks extends Objects {
+	class Decks extends QueriableObjects {
 
 		/**
 		 * @constructor.
@@ -918,7 +963,7 @@ var Odin = (function() {
 	/**
 	 * The Card class provides features to get and manipulate a token.
 	 */
-	class Card extends Object {
+	class Card extends QueriableObject {
 
 		/**
 		 * @constructor.
@@ -942,7 +987,7 @@ var Odin = (function() {
 	/**
 	 * The Cards class provides functionnalities to get and filter cards.
 	 */
-	class Cards extends Objects {
+	class Cards extends QueriableObjects {
 
 		/**
 		 * @constructor.
@@ -956,7 +1001,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findTable() {
-			this.objs = _.chain(this.findAll().objs)
+			this.objs = _.chain(this.findObjects(null).objs)
 			             .map(obj => getObj('card', obj.get('cardid')))
 			             .reject(_.isUndefined)
 			             .value();
@@ -980,7 +1025,7 @@ var Odin = (function() {
 	/**
 	 * The Hand class provides features to get and manipulate a hand.
 	 */
-	class Hand extends Object {
+	class Hand extends QueriableObject {
 
 		/**
 		 * @constructor.
@@ -994,7 +1039,7 @@ var Odin = (function() {
 	/**
 	 * The Hands class provides functionnalities to get and filter hands.
 	 */
-	class Hands extends Objects {
+	class Hands extends QueriableObjects {
 
 		/**
 		 * @constructor.

@@ -289,7 +289,7 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 
 	.add("Fetches all players", false, async () => {
 		const players = new Odin.Players();
-		await Odin.Players.fetchAll(players);
+		await Odin.Players.fetchObjects(players, {});
 		return Odin.Test.assertNotEmptyArray(players.objs);
 	})
 
@@ -304,8 +304,8 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 	.add("Filters players if game master", false, async () => {
 		const masters = new Odin.Players();
 		const players = new Odin.Players();
-		await Odin.Players.fetchAll(masters);
-		await Odin.Players.fetchAll(players);
+		await Odin.Players.fetchObjects(masters, {});
+		await Odin.Players.fetchObjects(players, {});
 		return Odin.Test.assertNotEmptyArray(masters.filterMaster(true).objs) && Odin.Test.assertNotEmptyArray(players.filterMaster(false).objs);
 	})
 
@@ -337,7 +337,7 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 
 	.add("Fetches all pages", false, async () => {
 		const pages = new Odin.Pages();
-		await Odin.Pages.fetchAll(pages);
+		await Odin.Pages.fetchObjects(pages, {});
 		return Odin.Test.assertNotEmptyArray(pages.objs);
 	})
 
@@ -387,7 +387,7 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 
 	.add("Fetches all decks", false, async () => {
 		const decks = new Odin.Decks();
-		await Odin.Decks.fetchAll(decks);
+		await Odin.Decks.fetchObjects(decks, {});
 		return Odin.Test.assertNotEmptyArray(decks.objs);
 	})
 
@@ -479,7 +479,7 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 
 	.add("Fetches all hands", false, async () => {
 		const hands = new Odin.Hands();
-		await Odin.Hands.fetchAll(hands);
+		await Odin.Hands.fetchObjects(hands, {});
 		return Odin.Test.assertNotEmptyArray(hands.objs);
 	})
 
@@ -497,7 +497,7 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 
 	.add("Finds all tokens", true, async () => {
 		//const tokens = new Odin.Tokens();
-		//await Odin.Tokens.fetchAll(tokens);
+		//await Odin.Tokens.fetchObjects(tokens, {});
 		//return Odin.Test.assertNotEmptyArray(tokens.objs);
 		//TODO
 		//return Odin.Test.assertNotEmptyArray(new Odin.Tokens().findAll().objs);
@@ -517,7 +517,7 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 
 	.add("Fetches all characters", false, async () => {
 		const characters = new Odin.Characters();
-		await Odin.Characters.fetchAll(characters);
+		await Odin.Characters.fetchObjects(characters, {});
 		return Odin.Test.assertNotEmptyArray(characters.objs);
 	})
 
