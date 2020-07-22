@@ -275,7 +275,6 @@ var Odin = (function() {
 		 * @constructor.
 		 * @param name The name of the poker color.
 		 * @param rank The rank of the color, from 1 to the lower priority.
-		 * 
 		 */
 		constructor(name, rank) {
 			super(name, rank);
@@ -292,7 +291,6 @@ var Odin = (function() {
 		 * @constructor.
 		 * @param name The name of the poker card.
 		 * @param rank The rank of the card, from 1 to the lower priority.
-		 * 
 		 */
 		constructor(name, rank) {
 			super(name, rank);
@@ -392,7 +390,7 @@ var Odin = (function() {
 			const q = this.subtype != null ? 
 				{ _type: this.type, _subtype: this.subtype } :
 				{ _type: this.type };
-			if (query != null) {
+			if (!_.isUndefined(query) && !_.isNull(query)) {
 				Object.assign(q, query);
 			}
 			return findObjs(q)
@@ -422,6 +420,13 @@ var Odin = (function() {
 		constructor(type, subtype) {
 			super(type, subtype);
 			this.obj = null;
+		}
+
+		/**
+		 * @return true if the object is valid. 
+		 */
+		isValid() {
+			return !_.isUndefined(this.obj) && !_.isNull(this.obj);
 		}
 
 		/**
@@ -569,24 +574,24 @@ var Odin = (function() {
 		}
 
 		/**
-		 * @eturn true if the player is online.
+		 * @return true if the player is online.
 		 */
 		isOnline() {
-			return this.obj != null && this.obj.get('_online') === true;
+			return this.isValid() && this.obj.get('_online') === true;
 		}
 
 		/**
 		 * @return true if the player is online and a game master. 
 		 */
 		isMaster() {
-			return this.obj != null && playerIsGM(this.obj.get('id')) === true;
+			return this.isValid() && playerIsGM(this.obj.get('id')) === true;
 		}
 
 		/**
 		 * @return true if the player is online and not a game master. 
 		 */
 		isPlayer() {
-			return this.obj != null && playerIsGM(this.obj.get('id')) === false;
+			return this.isValid() && playerIsGM(this.obj.get('id')) === false;
 		}
 
 		/**
@@ -663,7 +668,7 @@ var Odin = (function() {
 		 * @return true if the page is active. 
 		 */
 		isActive() {
-			return this.obj != null && Campaign().get('playerpageid') === this.obj.get('id');
+			return this.isValid() && Campaign().get('playerpageid') === this.obj.get('id');
 		}
 
 		/**
@@ -671,7 +676,7 @@ var Odin = (function() {
 		 * @return the instance. 
 		 */
 		activate() {
-			if (this.obj != null && Campaign().get('playerpageid') != this.obj.get('id')) {
+			if (this.isValid() && Campaign().get('playerpageid') != this.obj.get('id')) {
 				Campaign().set('playerpageid', this.obj.get('id'));
 			}
 			return this;
@@ -737,6 +742,13 @@ var Odin = (function() {
 		}
 
 		/**
+		 * @return true if the character is a player character. 
+		 */
+		isPlayerCharacter() {
+			return !_.isNull(this.obj) && this.obj.get('controlledby') != '';
+		}
+
+		/**
 		 * Finds the specified character.
 		 * @param name The name of the character to find.
 		 * @return the instance.
@@ -744,13 +756,6 @@ var Odin = (function() {
 		findName(name) {
 			this.findObject({'name': name});
 			return this;
-		}
-
-		/**
-		 * @return true if the character is a player character. 
-		 */
-		isPlayerCharacter() {
-			return this.obj != null && this.obj.get('controlledby') != '';
 		}
 
 		/**
@@ -887,7 +892,7 @@ var Odin = (function() {
 		 * @return the cards in the deck just after the last shuffle.
 		 */
 		lastShuffle() {
-			return this.obj != null ? new Cards().setObjects(
+			return this.isValid() ? new Cards().setObjects(
 				_.chain(this.obj.get('currentDeck').split(/\s*,\s*/))
 				 .map(cardid => getObj('card', cardid))
 				 .reject(_.isUndefined)
@@ -1001,7 +1006,7 @@ var Odin = (function() {
 		 * @return the instance.
 		 */
 		findTable() {
-			this.objs = _.chain(this.findObjects(null).objs)
+			this.objs = _.chain(this.findObjects().objs)
 			             .map(obj => getObj('card', obj.get('cardid')))
 			             .reject(_.isUndefined)
 			             .value();
