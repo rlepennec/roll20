@@ -1,10 +1,10 @@
 const _playerId_1 = "-M5rtkkXsEkckPk1v0DL";
-const _pageId_1 = "-M5xeoigOD2b0Vsz4stI";
-const _tokenId_1 = "-M7lbGZnSu6SItqBzU4n";
-const _tokenId_2 = "-M7lbEbIk_ER_Mt51qZF";
+const _pageId_1 = "-M5xeoigOD2b0Vsz4stI";      // Page with Map Start
+const _tokenId_1 = "-M61gn5dwzeaeWaKtScA";     // Token Map Start
+const _tokenId_2 = "-MCmHnt4pp5nubDXIcV-";     // Token Lincoln
 const _characterId_1 = "-M7laLPHxEwBBvSma4gh"; // Lincoln
 const _characterId_2 = "-M63mpWsG_c3BwN1b3DU"; // Sadie
-const _deckId_1 = "-M8pqKN-SnT3CwJJqRcz"; // Actions
+const _deckId_1 = "-M8pqKN-SnT3CwJJqRcz";      // Actions
 const _cardId_1 = "-M8swNpKKC6Ujo0SvBel";
 const _cardId_2 = "-M8r0TYwIpBy2pqUmWDT";
 const _handId_1 = "-M7ie833VkosbYjj8rbX";
@@ -495,21 +495,36 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 	// Tokens
 	// ------------------------------------------------------------------------
 
-	.add("Finds all tokens", true, async () => {
-		//const tokens = new Odin.Tokens();
-		//await Odin.Tokens.fetchQuery(tokens, {});
-		//return Odin.Test.assertNotEmptyArray(tokens.objs);
-		//TODO
-		//return Odin.Test.assertNotEmptyArray(new Odin.Tokens().findAll().objs);
-		return true;
+	.add("Fetches all tokens", false, async () => {
+		const tokens = new Odin.Tokens();
+		await Odin.Tokens.fetchQuery(tokens);
+		return Odin.Test.assertNotEmptyArray(tokens.objs);
+	})
+
+	.add("Finds all tokens on page", false, async () => {
+		const page = new Odin.Page();
+		await Odin.Page.fetchName(page, "Start");
+		const tokens = new Odin.Tokens().findOnPage(page);
+		return Odin.Test.assertNotEmptyArray(tokens.objs) &&
+		       Odin.Test.assertEmptyArray(tokens.filter(function (t) { return t.get('_pageid') != page.obj.get('id'); }).objs);
+	})
+
+	.add("Fetches all tokens on page", false, async () => {
+		const page = new Odin.Page();
+		await Odin.Page.fetchName(page, "Start");
+		const tokens = new Odin.Tokens();
+		await Odin.Tokens.fetchOnPage(tokens, page);
+		return Odin.Test.assertNotEmptyArray(tokens.objs) &&
+		       Odin.Test.assertEmptyArray(tokens.filter(function (t) { return t.get('_pageid') != page.obj.get('id'); }).objs);
 	})
 
 	// Token
 	// ------------------------------------------------------------------------
 
-	.add("Finds a token by id", true, async () => { //TODO
-		//return Odin.Test.assertNotEmptyObject(new Odin.Token().findId(_tokenId_1).obj);
-		return true;
+	.add("Fetches a token by id", false, async () => {
+		const token = new Odin.Token();
+		await Odin.Token.fetchId(token, _tokenId_1);
+		return Odin.Test.assertNotEmptyObject(token.obj);
 	})
 
 	// Characters
@@ -517,7 +532,22 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 
 	.add("Fetches all characters", false, async () => {
 		const characters = new Odin.Characters();
-		await Odin.Characters.fetchQuery(characters, {});
+		await Odin.Tokens.fetchQuery(characters);
+		return Odin.Test.assertNotEmptyArray(characters.objs);
+	})
+
+	.add("Finds all characters on page", false, async () => {
+		const page = new Odin.Page();
+		await Odin.Page.fetchName(page, "Start");
+		const characters = new Odin.Characters().findOnPage(page);
+		return Odin.Test.assertNotEmptyArray(characters.objs);
+	})
+
+	.add("Fetches all characters on page", false, async () => {
+		const page = new Odin.Page();
+		await Odin.Page.fetchName(page, "Start");
+		const characters = new Odin.Characters();
+		await Odin.Characters.fetchOnPage(characters, page);
 		return Odin.Test.assertNotEmptyArray(characters.objs);
 	})
 
@@ -545,9 +575,8 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 		await Odin.Character.fetchId(npc, _characterId_2);
 		return Odin.Test.assertFalse(pc.isPlayerCharacter()) && Odin.Test.assertTrue(npc.isPlayerCharacter());
 	})
-	
-	;
 
+	;
 
 // The API message subscribtion.
 on('ready',function() {

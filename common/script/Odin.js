@@ -152,11 +152,11 @@ var Odin = (function() {
 		 * @return true if value is not null;
 		 */
 		static assertNotNull(value) {
-			const assert = value != null;
-			if (!assert) {
+			const success = value != null;
+			if (!success) {
 				log(assert);
 			}
-			return assert;
+			return success;
 		}
 
 		/**
@@ -165,11 +165,11 @@ var Odin = (function() {
 		 * @return true if array is not empty or null;
 		 */
 		static assertNotEmptyArray(array) {
-			const assert = Array.isArray(array) && array.length > 0;
-			if (!assert) {
+			const success = Array.isArray(array) && array.length > 0;
+			if (!success) {
 				log(assert);
 			}
-			return assert;
+			return success;
 		}
 
 		/**
@@ -178,11 +178,11 @@ var Odin = (function() {
 		 * @return true if array is empty;
 		 */
 		static assertEmptyArray(array) {
-			const assert = Array.isArray(array) && _.size(array) === 0;
-			if (!assert) {
+			const success = Array.isArray(array) && _.size(array) === 0;
+			if (!success) {
 				log(assert);
 			}
-			return assert;
+			return success;
 		}
 
 		/**
@@ -191,11 +191,11 @@ var Odin = (function() {
 		 * @return true if object is empty or null;
 		 */
 		static assertEmptyObject(object) {
-			const assert = !_.isObject(object) || _.isEmpty(object);
-			if (!assert) {
+			const success = !_.isObject(object) || _.isEmpty(object);
+			if (!success) {
 				log(assert);
 			}
-			return assert;
+			return success;
 		}
 
 		/**
@@ -204,11 +204,11 @@ var Odin = (function() {
 		 * @return true if object is not empty or null;
 		 */
 		static assertNotEmptyObject(object) {
-			const assert = _.isObject(object) && !_.isEmpty(object);
-			if (!assert) {
+			const success = _.isObject(object) && !_.isEmpty(object);
+			if (!success) {
 				log(assert);
 			}
-			return assert;
+			return success;
 		}
 	
 		/**
@@ -782,6 +782,33 @@ var Odin = (function() {
 			super('character', null);
 		}
 
+		/**
+		 * Finds characters in the specified page.
+		 * @param page The page on which the characters must be.
+		 * @return the instance.
+		 */
+		findOnPage(page) {
+			this.setObjects(
+				_.chain(new Tokens().findOnPage(page).objs)
+				 .map(obj => getObj('character', obj.get('represents')))
+				 .reject(_.isUndefined)
+				 .value());
+			return this;
+		}
+
+		/**
+		 * Fetches characters in the specified page.
+		 * @param tokens The characters to update.
+		 * @param page   The page on which the characters must be.
+		 * @return the characters.
+		 */
+		static async fetchOnPage(characters, page) {
+			await new Promise(resolve => {
+				setTimeout(() => resolve(characters.findOnPage(page)), 100);
+			});
+			return characters;
+		}
+
 	}
 
 	/**
@@ -813,7 +840,7 @@ var Odin = (function() {
 		}
 
 		/**
-		 * Finds tokens in the specified page.
+		 * Finds the tokens in the specified page.
 		 * @param page The page on which the tokens must be.
 		 * @return the instance.
 		 */
@@ -829,10 +856,7 @@ var Odin = (function() {
 		 * @return the tokens.
 		 */
 		static async fetchOnPage(tokens, page) {
-			await new Promise(resolve => {
-				setTimeout(() => resolve(tokens.findOnPage(page)), 100);
-			});
-			return tokens;
+			return QueriableObjects.fetchQuery(tokens, {'_pageid': page.obj.get('id')});
 		}
 
 	}
