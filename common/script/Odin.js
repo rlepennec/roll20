@@ -629,7 +629,7 @@ var Odin = (function() {
 		}
 
 		/**
-		 * Finds the players or the game masters.
+		 * Filters the players or the game masters.
 		 * @param master True if players must be game master.
 		 * @return filtered players.
 		 */
@@ -792,8 +792,20 @@ var Odin = (function() {
 				_.chain(new Tokens().findOnPage(page).objs)
 				 .map(obj => getObj('character', obj.get('represents')))
 				 .reject(_.isUndefined)
+				 .uniq()
 				 .value());
 			return this;
+		}
+
+		/**
+		 * Finds the player or non player characters.
+		 * @param player True if characters must be players.
+		 * @return filtered players.
+		 */
+		filterPlayer(player) {
+			return this.filter(function(obj) { return player === true ?
+				obj.get('controlledby') != '' :
+				obj.get('controlledby') === ''; });
 		}
 
 		/**

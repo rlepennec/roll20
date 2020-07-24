@@ -551,6 +551,16 @@ var _odin = _odin || new Odin.TestSuite("Odin")
 		return Odin.Test.assertNotEmptyArray(characters.objs);
 	})
 
+	.add("Filter player characters", false, async () => {
+		const characters = new Odin.Characters();
+		await Odin.Tokens.fetchQuery(characters);
+		characters.filterPlayer(false);
+		const expected = _.size(characters.objs);
+		characters.filter(function (c) { return c.get('controlledby') === ''; })
+		const obtained = _.size(characters.objs);
+		return expected > 0 && expected === obtained;
+	})
+
 	// Character
 	// ------------------------------------------------------------------------
 
