@@ -682,6 +682,7 @@ div.sheet-tab-content, .sheet-tab-optionnal {
 }
 
 
+input.sheet-practice-nephilim:checked~.sheet-tab-optionnal1,
 input.sheet-practice-mag:checked~.sheet-tab-optionnal4,
 input.sheet-practice-kabb:checked~.sheet-tab-optionnal5,
 input.sheet-practice-alch:checked~.sheet-tab-optionnal6,
