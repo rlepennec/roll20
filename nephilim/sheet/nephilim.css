@@ -709,19 +709,23 @@ div.sheet-tab-content, .sheet-tab-optionnal {
     display: none;
 }
 
-input.sheet-practice-nephilim:checked~.sheet-tab-optionnal1,
-input.sheet-practice-nephilim:checked~.sheet-tab-optionnal2,
-input.sheet-practice-nephilim:checked~.sheet-tab-optionnal3,
-input.sheet-practice-nephilim:checked~input.sheet-practice-mag:checked~.sheet-tab-optionnal4,
-input.sheet-practice-nephilim:checked~input.sheet-practice-kabb:checked~.sheet-tab-optionnal5,
-input.sheet-practice-nephilim:checked~input.sheet-practice-alch:checked~.sheet-tab-optionnal6,
-input.sheet-practice-nephilim:checked~.sheet-tab-optionnal7,
-input.sheet-practice-selenim:checked~.sheet-tab-optionnal8,
-input.sheet-practice-selenim:checked~.sheet-tab-optionnal9,
-input.sheet-practice-selenim:checked~.sheet-tab-optionnal10,
-input.sheet-practice-selenim:checked~input.sheet-practice-necro:checked~.sheet-tab-optionnal11,
-input.sheet-practice-selenim:checked~input.sheet-practice-kabbN:checked~.sheet-tab-optionnal12,
-input.sheet-practice-selenim:checked~input.sheet-practice-imago:checked~.sheet-tab-optionnal13 {
+
+
+
+
+input.sheet-is-nephilim:checked~.sheet-tab-optionnal1,
+input.sheet-is-nephilim:checked~.sheet-tab-optionnal2,
+input.sheet-is-nephilim:checked~.sheet-tab-optionnal3,
+input.sheet-is-nephilim:checked~input.sheet-practice-mag:checked~.sheet-tab-optionnal4,
+input.sheet-is-nephilim:checked~input.sheet-practice-kabb:checked~.sheet-tab-optionnal5,
+input.sheet-is-nephilim:checked~input.sheet-practice-alch:checked~.sheet-tab-optionnal6,
+input.sheet-is-nephilim:checked~.sheet-tab-optionnal7,
+input.sheet-is-selenim:checked~.sheet-tab-optionnal8,
+input.sheet-is-selenim:checked~.sheet-tab-optionnal9,
+input.sheet-is-selenim:checked~.sheet-tab-optionnal10,
+input.sheet-is-selenim:checked~input.sheet-practice-necro:checked~.sheet-tab-optionnal11,
+input.sheet-is-selenim:checked~input.sheet-practice-kabbN:checked~.sheet-tab-optionnal12,
+input.sheet-is-selenim:checked~input.sheet-practice-imago:checked~.sheet-tab-optionnal13 {
     display: inline;
 }
 
