@@ -719,7 +719,8 @@ input.sheet-practice-nephilim:checked~input.sheet-practice-mag:checked~.sheet-ta
 input.sheet-practice-nephilim:checked~input.sheet-practice-kabb:checked~.sheet-tab-optionnal5,
 input.sheet-practice-nephilim:checked~input.sheet-practice-alch:checked~.sheet-tab-optionnal6,
 input.sheet-practice-nephilim:checked~.sheet-tab-optionnal7,
-input.sheet-practice-selenim:checked~.sheet-tab-optionnal8 {
+input.sheet-practice-selenim:checked~.sheet-tab-optionnal8,
+input.sheet-practice-selenim:checked~.sheet-tab-optionnal9 {
     display: inline;
 }
 
@@ -732,7 +733,8 @@ input.sheet-tab6:checked~div.sheet-tab6,
 input.sheet-tab7:checked~div.sheet-tab7,
 input.sheet-tab8:checked~div.sheet-tab8,
 input.sheet-tab9:checked~div.sheet-tab9,
-input.sheet-tab10:checked~div.sheet-tab10  {
+input.sheet-tab10:checked~div.sheet-tab10,
+input.sheet-tab11:checked~div.sheet-tab11 {
     display: block;
 }
 

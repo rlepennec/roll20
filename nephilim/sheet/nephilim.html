@@ -20,6 +20,7 @@
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab8 sheet-tab-optionnal sheet-tab-optionnal6" value="8" /><span class="sheet-tab-optionnal sheet-tab-optionnal6" title="Constructs"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab9 sheet-tab-optionnal sheet-tab-optionnal7" value="9" /><span class="sheet-tab-optionnal sheet-tab-optionnal7" title="Fraternité"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab10 sheet-tab-optionnal sheet-tab-optionnal8" value="10" /><span class="sheet-tab-optionnal sheet-tab-optionnal8" title="Selenim"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab11 sheet-tab-optionnal sheet-tab-optionnal9" value="11" /><span class="sheet-tab-optionnal sheet-tab-optionnal9" title="Vécus"></span>
 
 <div class="sheet-test"></div>
 
@@ -1011,6 +1012,114 @@
             </div>
 
         </div>
+    </div>
+</div>
+
+<!------------------------------------------- Page 11 - Vécus & Simulacre (selenim) ------------------------------------------->
+<div class="sheet-tab-content sheet-tab11">
+    
+    <div class="sheet-main sheet-attrib sheet-incarnation">
+        <h3>Simulacre</h3>
+        <div class="sheet-simu-attrib">
+            <div class="sheet-bigtext">Ka soleil : </div>
+            <input class="sheet-carre" name="attr_simu-kasoleil" type="number" />
+        </div>
+        <div class="sheet-simu-attrib">
+            <div class="sheet-bigtext">Nom : </div>
+            <input type="text" name="attr_simu_name" placeholder="Nom" />
+            <div class="sheet-bigtext">Âge : </div>
+            <input type="text" name="attr_simu_age" placeholder="Âge" />
+        </div>
+        <div class="sheet-simu-attrib">
+            <div class="sheet-bigtext">Genre : </div>
+            <input type="text" name="attr_simu_genre" placeholder="Genre" />
+            <div class="sheet-bigtext">Vécu : </div>
+            <input type="text" name="attr_simu_vecu" value="Changement de peau" readonly/>
+            <input class="sheet-carre" name="attr_simu-vecu-nbr" type="number" />
+            <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:vecu} {{perso= @{character_name} }} {{nom_vecu= @{simu_vecu} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{ Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{simu-vecu-nbr}[ Vécu ])*10 ]] }} "></button>
+        </div>
+        <div class="sheet-simu-attrib">
+            <div class="sheet-bigtext sheet-text-top">Description : </div>
+            <textarea rows="4" name="attr_simu-descr" placeholder="Description du simulacre"></textarea>
+            <div class="sheet-bigtext sheet-text-top">Ressources : </div>
+            <textarea rows="4" name="attr_simu-ress" placeholder="Ressources du simulacre"></textarea>
+        </div>
+    </div>
+
+    <div class="sheet-main sheet-attrib sheet-incarnation">
+        <h3>Vécus</h3>
+        <fieldset class="repeating_epoques-incarnation">
+            <div class="sheet-box sheet-col">
+                <input type="text" name="attr_vecus-passe1" type="text" /><input class="sheet-carre" name="attr_degres_vecu_passe1" type="number" />
+                <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:vecu} {{perso= @{character_name} }} {{nom_vecu= @{vecus-passe1} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{ Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{degres_vecu_passe1}[ Vécu ])*10 ]] }} "></button>
+            </div>
+            <div class="sheet-box sheet-col">
+                <input type="text" name="attr_vecus-passe2" type="text" /><input class="sheet-carre" name="attr_degres_vecu_passe2" type="number" />
+                <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:vecu} {{perso= @{character_name} }} {{nom_vecu= @{vecus-passe2} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{ Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{degres_vecu_passe2}[ Vécu ])*10 ]] }} "></button>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="sheet-main sheet-attrib sheet-quetes-savoirs">
+        <h3>Savoirs esotériques</h3>
+        <fieldset class="repeating_savoir-eso">
+            <div class="sheet-box sheet-col">
+                <select class="sheet-large sheet-epoques-incarnation" name="attr_savoir_eso1">
+                    <option value="0">-- Savoir --</option>
+                    <option value="666">666</option>
+                    <option value="akasha">Akasha</option>
+                    <option value="ar-kaim">Ar-Kaïm</option>
+                    <option value="arcanes-majeur">Arcanes majeurs</option>
+                    <option value="bohemiens">Bohémiens</option>
+                    <option value="champs-magiques">Champs magiques</option>
+                    <option value="cousins">Cousins</option>
+                    <option value="drakaon">Drakaon</option>
+                    <option value="effets-dragons">Effets-dragons</option>
+                    <option value="histoire-invisible">Histoire invisible</option>
+                    <option value="kaim">Kaïm</option>
+                    <option value="lune-noire">Lune Noire</option>
+                    <option value="mystères">Mystères</option>
+                    <option value="nephilim">Nephilim</option>
+                    <option value="orichalque">Orichalque</option>
+                    <option value="révélation">Révélation</option>
+                    <option value="rose-croix">Rose+Croix</option>
+                    <option value="sciences-occultes">Sciences-occultes</option>
+                    <option value="selenim">Selenim</option>
+                    <option value="synarchie">Synarchie</option>
+                    <option value="templiers">Templiers</option>
+                </select>
+                <input class="sheet-carre" name="attr_savoir_eso_degres1" title="degres" type="number" />
+                <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:vecu} {{perso= @{character_name} }} {{nom_vecu= @{savoir_eso1} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{ Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{savoir_eso_degres1}[ Savoir ])*10 ]] }} "></button>
+			</div>
+            <div class="sheet-box sheet-col">
+                <select class="sheet-large sheet-epoques-incarnation" name="attr_savoir_eso2">
+                    <option value="0">-- Savoir --</option>
+                    <option value="666">666</option>
+                    <option value="akasha">Akasha</option>
+                    <option value="ar-kaim">Ar-Kaïm</option>
+                    <option value="arcanes-majeur">Arcanes majeurs</option>
+                    <option value="bohemiens">Bohémiens</option>
+                    <option value="champs-magiques">Champs magiques</option>
+                    <option value="cousins">Cousins</option>
+                    <option value="drakaon">Drakaon</option>
+                    <option value="effets-dragons">Effets-dragons</option>
+                    <option value="histoire-invisible">Histoire invisible</option>
+                    <option value="kaim">Kaïm</option>
+                    <option value="lune-noire">Lune Noire</option>
+                    <option value="mystères">Mystères</option>
+                    <option value="nephilim">Nephilim</option>
+                    <option value="orichalque">Orichalque</option>
+                    <option value="révélation">Révélation</option>
+                    <option value="rose-croix">Rose+Croix</option>
+                    <option value="sciences-occultes">Sciences-occultes</option>
+                    <option value="selenim">Selenim</option>
+                    <option value="synarchie">Synarchie</option>
+                    <option value="templiers">Templiers</option>
+                </select>
+                <input class="sheet-carre" name="attr_savoir_eso_degres2" title="degres" type="number" />
+                <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:vecu} {{perso= @{character_name} }} {{nom_vecu= @{savoir_eso2} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{ Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{savoir_eso_degres2}[ Savoir ])*10 ]] }} "></button>
+			</div>
+        </fieldset>
     </div>
 </div>
 
