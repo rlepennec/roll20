@@ -719,7 +719,7 @@ input.sheet-practice-nephilim:checked~.sheet-tab-optionnal7,
 input.sheet-practice-selenim:checked~.sheet-tab-optionnal8,
 input.sheet-practice-selenim:checked~.sheet-tab-optionnal9,
 input.sheet-practice-selenim:checked~.sheet-tab-optionnal10,
-input.sheet-practice-selenim:checked~.sheet-tab-optionnal11,
+input.sheet-practice-selenim:checked~input.sheet-practice-necro:checked~.sheet-tab-optionnal11,
 input.sheet-practice-selenim:checked~.sheet-tab-optionnal12,
 input.sheet-practice-selenim:checked~.sheet-tab-optionnal13 {
     display: inline;
