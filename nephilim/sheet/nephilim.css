@@ -699,8 +699,6 @@ p.sheet-doublesize {
     width: 70px
 }
 
-
-
 .sheet-first-annonce{
     width: 200px;
     display: inline-block;
@@ -710,7 +708,6 @@ p.sheet-doublesize {
 div.sheet-tab-content, .sheet-tab-optionnal {
     display: none;
 }
-
 
 input.sheet-practice-nephilim:checked~.sheet-tab-optionnal1,
 input.sheet-practice-nephilim:checked~.sheet-tab-optionnal2,
