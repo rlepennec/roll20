@@ -6,8 +6,8 @@
 <input type="checkbox" id="practice_kabb" name="attr_practice_kabb" class="sheet-checkbox-tab sheet-practice-kabb"><label for="practice_kabb" class="sheet-bla">La Kabbale</label>
 <input type="checkbox" id="practice_alch" name="attr_practice_alch" class="sheet-checkbox-tab sheet-practice-alch"><label for="practice_alch" class="sheet-bla">L'Alchimie</label>
 <input type="checkbox" id="practice_selenim" name="attr_practice_selenim" class="sheet-checkbox-tab sheet-practice-selenim"><label for="practice_selenim" class="sheet-bla">Selenim</label>
-
 <div></div>
+
 <!------------------------------------ Generic tabs ------------------------------------------->
 <div class="sheet-first-annonce">Accès rapides : </div>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1 sheet-tab-optionnal sheet-tab-optionnal1" value="1" checked="checked" /><span class="sheet-tab-optionnal sheet-tab-optionnal1" title="Nephilim"></span>
@@ -21,6 +21,7 @@
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab9 sheet-tab-optionnal sheet-tab-optionnal7" value="9" /><span class="sheet-tab-optionnal sheet-tab-optionnal7" title="Fraternité"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab10 sheet-tab-optionnal sheet-tab-optionnal8" value="10" /><span class="sheet-tab-optionnal sheet-tab-optionnal8" title="Selenim"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab11 sheet-tab-optionnal sheet-tab-optionnal9" value="11" /><span class="sheet-tab-optionnal sheet-tab-optionnal9" title="Vécus"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab12 sheet-tab-optionnal sheet-tab-optionnal10" value="12" /><span class="sheet-tab-optionnal sheet-tab-optionnal10" title="Materiel"></span>
 
 <div class="sheet-test"></div>
 
@@ -1120,6 +1121,167 @@
                 <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:vecu} {{perso= @{character_name} }} {{nom_vecu= @{savoir_eso2} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{ Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{savoir_eso_degres2}[ Savoir ])*10 ]] }} "></button>
 			</div>
         </fieldset>
+    </div>
+</div>
+
+<!------------------------------------------- Page 3 - Attributs & Dommages ------------------------------------------->
+<div class="sheet-tab-content sheet-tab12">
+
+    <div class="sheet-main sheet-attributes">
+        <div class="sheet-col sheet-carac">
+            <h2>Actions et attributs</h2>
+            <div class="sheet-attrib">
+                <div class="sheet-bigtext sheet-longtext">Initiative</div><input type="hidden" name="attr_foo_init" value="0" />
+                <input type="number" name="attr_init" class="sheet-carre" title="KLN" value="@{foo_init}" disabled="true"/>
+            </div>
+            <div class="sheet-attrib">
+                <div class="sheet-bigtext sheet-longtext">Mouvement</div><input type="hidden" name="attr_foo_mouv" value="0" />
+                <input type="number" name="attr_mouv" class="sheet-carre" title="KLN" value="@{foo_mouv}" disabled="true"/>
+            </div>
+            <div class="sheet-attrib">
+                <div class="sheet-bigtext sheet-longtext">Perspicacité</div><input type="hidden" name="attr_foo_persp" value="0" />
+                <input type="number" name="attr_persp" class="sheet-carre" title="11 - KLN" value="@{foo_persp}" disabled="true" />
+            </div>
+            <div class="sheet-attrib">
+                <div class="sheet-bigtext sheet-longtext">Récupération</div><input type="hidden" name="attr_foo_recup" value="0" />
+                <input type="number" name="attr_recup" class="sheet-carre" title="11 - KLN" value="@{foo_recup}" disabled="true" />
+            </div>
+            <div class="sheet-attrib">
+                <div class="sheet-bigtext sheet-longtext">Bonus de dommages</div><input type="hidden" name="attr_foo_bonus-dom" value="0" />
+                <input type="number" name="attr_bonus-dom" class="sheet-carre" title="(KLN>10 =+1)(+1 par tranche de 10 KLN)" value="@{foo_bonus-dom}" disabled="true" />
+            </div>
+        </div>
+
+        <div class="sheet-col sheet-main">
+            <h2>Dommages</h2>
+            <div class="sheet-attrib">
+                <div class="sheet-dommages-physiques">
+                    <div class="sheet-bigtext">Physiques</div>
+                    <input type="number" class="sheet-carre sheet-floatright" name="attr_dom" />
+                    <div class="sheet-right">
+                        <input class="sheet-foo-dom-phys1" type="hidden" name="attr_foo_dom_phys1" value="0" />
+                        <input class="sheet-foo-dom-phys2" type="hidden" name="attr_foo_dom_phys2" value="0" />
+                        <input type="radio" class="sheet-compteur sheet-zero" name="attr_dom" value="0" readonly/><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_dom" value="1" readonly /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_dom" value="2" readonly/><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_dom" value="3" readonly/><span></span>
+                        <input type="radio" class="sheet-compteur sheet-input-dom-phys-level4" name="attr_dom" value="4" readonly/><span class="sheet-dom-phys-level4"></span>
+                        <input type="radio" class="sheet-compteur sheet-input-dom-phys-level5" name="attr_dom" value="5" readonly/><span class="sheet-dom-phys-level5"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sheet-attrib sheet-consequence">
+                <div><div class="sheet-bigtext">Conséquences</div></div>
+                <div class="sheet-line ">
+                    <div class="sheet-bigtext sheet-100">Mineur</div><div class="sheet-bigtext sheet-modif">-2</div>
+                    <label class="sheet-checkbox-label">
+                        <input type="checkbox" name="attr_cons-min" class="sheet-checkbox-check">
+                        <i class="sheet-checkbox-img"></i>
+                    </label>
+                    <input type="text" class="sheet-right" name="attr_cons-min-desc" /></span>
+                </div>
+                <div class="sheet-line ">
+                    <div class="sheet-bigtext sheet-100">Sérieuse</div><div class="sheet-bigtext sheet-modif">-4</div>
+                    <label class="sheet-checkbox-label">
+                        <input type="checkbox" name="attr_cons-ser" class="sheet-checkbox-check">
+                        <i class="sheet-checkbox-img"></i>
+                    </label>
+                    <input type="text" name="attr_cons-ser-desc" />
+                </div>
+                <div class="sheet-line ">
+                    <div class="sheet-bigtext sheet-100">Grave</div><div class="sheet-bigtext sheet-modif">-6</div>
+                    <label class="sheet-checkbox-label">
+                        <input type="checkbox" name="attr_cons-gra" class="sheet-checkbox-check">
+                        <i class="sheet-checkbox-img"></i>
+                    </label>
+                    <input type="text" name="attr_cons-gra-desc" />
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet-col sheet-main">
+            <h2>Dommages</h2>
+
+            <div class="sheet-attrib">
+                <div class="sheet-dommages-magiques">
+                    <div class="sheet-bigtext">Magiques</div>
+                    <input type="number" class="sheet-carre sheet-floatright" name="attr_dom-mag" />
+                    <div class="sheet-right">
+                        <input type="radio" class="sheet-compteur sheet-zero" name="attr_dom-mag" value="0" readonly/><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_dom-mag" value="1" readonly/><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_dom-mag" value="2" readonly/><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_dom-mag" value="3" readonly/><span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sheet-attrib sheet-consequence">
+                <div><div class="sheet-bigtext">Conséquences</div></div>
+                <div class="sheet-line ">
+                    <div class="sheet-bigtext sheet-100">Mineur</div><div class="sheet-bigtext sheet-modif">-2</div>
+                    <label class="sheet-checkbox-label">
+                        <input type="checkbox" name="attr_cons-mag-min" class="sheet-checkbox-check">
+                        <i class="sheet-checkbox-img"></i>
+                    </label>
+                    <input type="text" name="attr_cons-mag-min-desc" />
+                </div>
+                <div class="sheet-line">
+                    <div class="sheet-bigtext sheet-100">Sérieuse</div><div class="sheet-bigtext sheet-modif">-4</div>
+                    <label class="sheet-checkbox-label">
+                        <input type="checkbox" name="attr_cons-mag-ser" class="sheet-checkbox-check">
+                        <i class="sheet-checkbox-img"></i>
+                    </label>
+                    <input type="text" name="attr_cons-mag-ser-desc" />
+                </div>
+                <div class="sheet-line">
+                    <div class="sheet-bigtext sheet-100">Grave</div><div class="sheet-bigtext sheet-modif">-6</div>
+                    <label class="sheet-checkbox-label">
+                        <input type="checkbox" name="attr_cons-mag-gra" class="sheet-checkbox-check">
+                        <i class="sheet-checkbox-img"></i>
+                    </label>
+                    <input type="text" name="attr_cons-mag-gra-desc" />
+                </div>
+            </div>
+            <input type="hidden" name="attr_total-malus" />
+        </div>
+    </div>
+    
+    <div class="sheet-main sheet-attrib">
+        <h2>Possessions</h2>
+
+        <div class="sheet-box sheet-attrib sheet-posses">
+            <div><div class="sheet-bigtext">Armes</div></div>
+            <fieldset class="repeating_poss-arme">
+                <input type="text" name="attr_poss-arme-nom" placeholder="Nom de l'arme"/>
+                <input class="sheet-carre sheet-floatright" name="attr_poss-arme-degre" type="number" />
+            </fieldset>
+        </div>
+
+        <div class="sheet-box sheet-attrib sheet-posses">
+            <div><div class="sheet-bigtext">Protections</div></div>
+            <fieldset class="repeating_poss-protec">
+                <input type="text" name="attr_poss-protec-nom" placeholder="Nom de la protection"/>
+                <input class="sheet-carre sheet-floatright" name="attr_poss-protec-degre" type="number" />
+            </fieldset>
+        </div>
+
+        <div class="sheet-box sheet-attrib sheet-posses sheet-posses-artef">
+            <div><div class="sheet-bigtext">Artefacts</div></div>
+            <fieldset class="repeating_posse-artefact-eso">
+                <input type="text" name="attr_poss-artefact-name" placeholder="Nom de l'artefact"/>
+                <select class="sheet-poss-artef-ka" name="attr_poss-artefact-ka">
+                    <option value="0">-- Ka-élément --</option>
+                    <option value="kaair">Air</option>
+                    <option value="kaeau">Eau</option>
+                    <option value="kafeu">Feu</option>
+                    <option value="kalune">Lune</option>
+                    <option value="katerre">Terre</option>
+                </select>
+                <input class="sheet-carre sheet-floatright" name="attr_poss-artefact-score" type="number" />
+                <textarea name="attr_poss-artefact-def" placeholder="Description de l'artefact"></textarea>
+            </fieldset>
+        </div>
     </div>
 </div>
 
