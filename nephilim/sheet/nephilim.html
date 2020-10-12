@@ -22,6 +22,9 @@
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab10 sheet-tab-optionnal sheet-tab-optionnal8" value="10" /><span class="sheet-tab-optionnal sheet-tab-optionnal8" title="Selenim"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab11 sheet-tab-optionnal sheet-tab-optionnal9" value="11" /><span class="sheet-tab-optionnal sheet-tab-optionnal9" title="Vécus"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab12 sheet-tab-optionnal sheet-tab-optionnal10" value="12" /><span class="sheet-tab-optionnal sheet-tab-optionnal10" title="Materiel"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab13 sheet-tab-optionnal sheet-tab-optionnal11" value="13" /><span class="sheet-tab-optionnal sheet-tab-optionnal11" title="Nécromancie"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab14 sheet-tab-optionnal sheet-tab-optionnal12" value="14" /><span class="sheet-tab-optionnal sheet-tab-optionnal12" title="Kabbale Noire"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab15 sheet-tab-optionnal sheet-tab-optionnal13" value="15" /><span class="sheet-tab-optionnal sheet-tab-optionnal13" title="Imago"></span>
 
 <div class="sheet-test"></div>
 
@@ -1285,9 +1288,101 @@
     </div>
 </div>
 
+<!------------------------------------------- Page 13/4 - necromancie ------------------------------------------->
+<div class="sheet-tab-content sheet-tab13">
+    <div class="sheet-main sheet-attrib sheet-necromancie-main">
+        <h2>necromancie</h2>
+        <div class="sheet-ligne">
+            <div class="sheet-bigtext">Nécromancie</div><input type="number" name="attr_necr-degre" class="sheet-carre" />
+        </div>
+    </div>
+    <div class="sheet-main sheet-attrib sheet-necromancie-main">
+        <h2>Liste de sorts</h2>
+        <fieldset class="repeating_mag-sort">
+            <div class="sheet-necr-sort-spec">
+                <div class="sheet-ligne">
+                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_necr-sort-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:sort} {{perso= @{character_name} }} {{nom_sort= @{necr-sort-nom} }} {{descrip_sort= @{necr-sort-desc} }} {{cout_sort= @{necr-sort-cout} }} {{duree_sort= @{necr-sort-duree} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{necr-degre}[ nécromancie ])*10 ]] }} "></button>
+                </div>   
+                <div class="sheet-ligne">
+                    <div class="sheet-bigtext">Cout : </div><input type="text" class="sheet-longinputtext" name="attr_necr-sort-cout" />
+                    <div class="sheet-bigtext">Durée : </div><input type="text" class="sheet-longinputtext" name="attr_necr-sort-duree" />
+                </div>
+                <div class="sheet-ligne sheet-last-line">
+                    <div class="sheet-bigtext">Description : </div>
+                    <textarea name="attr_necr-sort-desc"></textarea>
+                </div>
+            </div>
+        </fieldset>        
+    </div>
+</div>
+
+
+<!------------------------------------- Page 14/5 : Kabbale Noire ------------------------------------->
+<div class="sheet-tab-content sheet-tab14">
+    <div class="sheet-main sheet-attrib sheet-kabbN-main">
+        <h2>Kabbale Noire</h2>
+        <div class="sheet-ligne">
+            <div class="sheet-bigtext">Kabbale Noire</div><input type="number" name="attr_kabbN-degre" class="sheet-carre" />
+        </div>
+    </div>
+    <div class="sheet-main sheet-attrib">
+        <h2>Liste des invocations</h2>
+        <fieldset class="repeating_kabbN-invoc">
+            <div class="sheet-kabbN-invoc-spec">
+                <div class="sheet-ligne">
+                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_kabbN-invoc-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:invoc} {{perso= @{character_name} }} {{nom_creature= @{kabbN-invoc-nom} }} {{descrip_sort= @{kabbN-invoc-desc} }} {{cout_sort= @{kabbN-invoc-cout} }} {{entropie_sort= @{kabbN-invoc-entropie} }} {{controle_sort= @{kabbN-invoc-controle} }} {{dommage_sort= @{kabbN-invoc-dommage} }} {{protection_sort= @{kabbN-invoc-protection} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{kabbN-degre}[ Kabbale Noire ])*10 ]] }} "></button><button type="roll" class="sheet-rollsword btn ui-draggable" name="sheet-simu-roll-opposition" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:opposition} {{perso= @{character_name} }} {{nom_creature= @{kabbN-invoc-nom} }} {{jet=[[ 1d100 ]] }} {{seuil=[[(?{Bonus / malus ?|0}[Bonus, malus, vécus, etc. ]+@{kalunenoire}[ Ka Lune Noire ]+@{simu-attr_reserve-degre}[ Réserve ])*10 ]] }} {{jet_degre=[[ 1d100 ]] }} {{niv-degre=[[@{kabbN-invoc-cout}[ Degré ]*10 ]] }}"></button>
+                </div>
+                <div class="sheet-ligne">
+                    <div class="sheet-bigtext">Controle : </div>
+                    <label class="sheet-checkbox-label">
+                        <input type="checkbox" name="attr_kabbN-invoc-controle" class="sheet-checkbox-check">
+                        <i class="sheet-checkbox-img"></i>
+                    </label>
+                </div>        
+                <div class="sheet-ligne">
+                    <div class="sheet-bigtext">Ka-Lune Noire : </div><input type="number" name="attr_kabbN-invoc-cout" class="sheet-carre" />
+                    <div class="sheet-bigtext">Entropie : </div><input type="text" class="sheet-longinputtext" name="attr_kabbN-invoc-entropie" />
+                </div>
+                <div class="sheet-ligne sheet-mag-number">
+                    <div class="sheet-bigtext">Dommages : </div><input type="number" name="attr_kabbN-invoc-dommage" class="sheet-carre" />
+                    <div class="sheet-bigtext">Protection : </div><input type="number" name="attr_kabbN-invoc-protection" class="sheet-carre" />
+                </div>
+                <div class="sheet-ligne sheet-last-line">
+                    <div class="sheet-bigtext">Description : </div>
+                    <textarea name="attr_kabbN-invoc-desc"></textarea>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<!------------------------------------- Page 15/6 : Imago ------------------------------------->
+<div class="sheet-tab-content sheet-tab15">
+    <div class="sheet-main sheet-attrib sheet-imago-main">
+        <h2>Aspect de L'imago</h2>
+        <fieldset class="repeating_imago-aspect">
+            <div class="sheet-imago-aspect-spec">
+                <div class="sheet-ligne">
+                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_imago-aspect-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:imago} {{perso= @{character_name} }} {{nom_aspect= @{imago-aspect-nom} }} {{cout_aspect= @{imago-cout-mat} }} {{duree_aspect= @{imago-aspect-duree} }} {{descrip_aspect= @{imago-aspect-desc} }} {{jet= [[ @{imago-aspect-investi} ]] }} {{seuil= [[ @{imago-aspect-total} ]] }} "></button>
+                </div>
+                <div class="sheet-ligne">
+                    <div class="sheet-bigtext">Cout investi : </div><input type="text" class="sheet-longinputtext" name="attr_imago-aspect-investi" />
+                    <div class="sheet-bigtext">Cout total : </div><input type="text" class="sheet-longinputtext" name="attr_imago-aspect-total" />
+                </div>
+                <div class="sheet-ligne sheet-mag-number">
+                    <div class="sheet-bigtext">Durée : </div><input type="text" class="sheet-longinputtext" name="attr_imago-aspect-duree"/>
+					<input type="hidden" value="1" name="attr_imago-cout-mat">
+                </div>
+                <div class="sheet-ligne sheet-last-line">
+                    <div class="sheet-bigtext">Description : </div>
+                    <textarea name="attr_imago-aspect-desc"></textarea>
+                </div>
+            </div>
+        </fieldset>        
+    </div>
+</div>
+
 <!------------------------------------- End HTML Page ------------------------------------->
-
-
 
 
 <!------------------------------------- Begin Roll Templates ------------------------------------->
