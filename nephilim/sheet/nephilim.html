@@ -1631,6 +1631,46 @@
     </div>
 </rolltemplate>
 
+
+<!------------------------------------- Imago-Roll Template ------------------------------------->
+<rolltemplate class="sheet-rolltemplate-imago">
+    <div class="sheet-dice-box sheet-bg-imago">
+        <h1>{{perso}}</h1>
+        <div class="sheet-dice-subheader">
+            <div>Matérialise l'aspect de son imago : </div>
+            <div><span class="sheet-dice-bold">{{nom_aspect}}</span></div>
+        </div>
+
+        <div class="sheet-dice-main">
+            <div class="sheet-dice-roll">
+                <div>Cout payé :</div>
+                <div>{{jet}} ( {{seuil}} )</div>
+            </div>
+        
+            {{#rollLess() seuil jet}}
+                    <div class="sheet-dice-result-ok">Réussite</div>
+                    <div class="sheet-dice-effect">
+                        <div><span class="sheet-dice-bold">Cout : </span>{{cout_aspect}}</div>
+                        <div><span class="sheet-dice-bold">Durée : </span>{{duree_aspect}}</div>
+                        <div><span class="sheet-dice-bold">Effet : </span>{{descrip_aspect}}</div>
+                    </div>
+            {{/rollLess() seuil jet}}
+            
+            {{#rollGreater() seuil jet}}
+                    <div class="sheet-dice-result-ko">Echec</div>
+            {{/rollGreater() seuil jet}}
+            {{#rollTotal() seuil jet}}
+                    <div class="sheet-dice-result-ok">Réussite</div>
+                    <div class="sheet-dice-effect">
+                        <div><span class="sheet-dice-bold">Cout : </span>{{cout_aspect}}</div>
+                        <div><span class="sheet-dice-bold">Durée : </span>{{duree_aspect}}</div>
+                        <div><span class="sheet-dice-bold">Effet : </span>{{descrip_aspect}}</div>
+                    </div>
+            {{/rollTotal() seuil jet}}
+        </div>
+    </div>
+</rolltemplate>
+
 <!------------------------------------- End Roll Templates ------------------------------------->
 
 
@@ -1694,6 +1734,32 @@
             updateMagieFromOutside();
             // mise à jour de la Kabbale
             updateKabbaleFromOutside();
+        });
+    });
+
+    on("change:kalunenoire", function() {
+        getAttrs([ "kalunenoire", ], function(values) {
+            const kalunenoire = parseInt(values.kalunenoire);
+
+            const output = {};
+
+            // Mise à jour des caractéristiques généralles
+            output['foo_init'] = kalunenoire;
+            output['foo_mouv'] = kalunenoire;
+			if( kalunenoire < 11 ) {
+				output['foo_persp'] = 11 - kalunenoire;
+				output['foo_recup'] = 11 - kalunenoire;
+			} else {
+				output['foo_persp'] = 1;
+				output['foo_recup'] = 1;			
+			}
+
+
+            // Bonus dommages
+            output['foo_bonus-dom'] = Math.floor(( kalunenoire - 1 )/ 10);
+
+            // mise à jour des champs
+            if(output) setAttrs(output);
         });
     });
 
@@ -1833,7 +1899,26 @@
         updateAlchimieFromOutside();
     });
 
+    /********************** Calcul des invocation de Kabbale Noire à l'update des invocations **********************/
 
+    on("change:repeating_kabb-invoc:kabb-invoc-ka change:repeating_kabb-invoc:kabb-invoc-sephira", function() {
+        getAttrs([
+        "repeating_kabb-invoc_kabb-invoc-ka", "repeating_kabb-invoc_kabb-invoc-sephira",
+        "kaeau", "kafeu", "katerre", "kaair", "kalune", 
+        "malkut", "yesod", "hod", "netzah", "tiphereth", "chesed", "geburah", "binah", "hokmah", "kheter"
+        ], function(values) {
+
+            var ka_element = values["repeating_kabb-invoc_kabb-invoc-ka"];
+            var ka_element_value = getIntValue(values[ka_element]);
+
+            var kabb_sephira = values["repeating_kabb-invoc_kabb-invoc-sephira"];
+            var kabb_sephira_value = getIntValue(values[kabb_sephira]);
+
+            var total = (ka_element_value + kabb_sephira_value);
+
+            setAttrs({'repeating_kabb-invoc_kabb-invoc-current': total});
+        });
+    });
     
     /********************** TODO : Change des ka element --> MaJ des propriétés des nephilim + magie + kabbale + alchimie **********************/
 

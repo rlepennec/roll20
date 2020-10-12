@@ -145,12 +145,12 @@ input[type=checkbox].sheet-checkbox-tab{
 label.sheet-bla {
     position: relative;
     display: inline-block;
-    width: 110px;
+    width: 100px;
     font-size: 1.1em;
-    text-align: center;
+    text-align: left;
     height: 20px;
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 30px;
 }
 
 label.sheet-bla::before  {
@@ -1196,7 +1196,9 @@ input[type=text].sheet-verylonginputtext{
 /* Roll Templates */
 
 .sheet-rolltemplate-invoc .sheet-dice-box, .sheet-rolltemplate-vecu .sheet-dice-box, .sheet-rolltemplate-sort .sheet-dice-box,
-.sheet-rolltemplate-formule .sheet-dice-box, .sheet-rolltemplate-opposition .sheet-dice-box, .sheet-rolltemplate-ka .sheet-dice-box{
+.sheet-rolltemplate-formule .sheet-dice-box, .sheet-rolltemplate-opposition .sheet-dice-box, .sheet-rolltemplate-ka .sheet-dice-box,
+.sheet-rolltemplate-pavane .sheet-dice-box, .sheet-rolltemplate-opposition .sheet-dice-box, .sheet-rolltemplate-ka .sheet-dice-box,
+.sheet-rolltemplate-imago .sheet-dice-box {
     font-size: 1em;
     font-family: 'Kalam', cursive;
     border: 4px double #000;
@@ -1204,7 +1206,9 @@ input[type=text].sheet-verylonginputtext{
 }
 
 .sheet-rolltemplate-invoc .sheet-dice-box h1, .sheet-rolltemplate-vecu .sheet-dice-box h1, .sheet-rolltemplate-sort .sheet-dice-box h1,
-.sheet-rolltemplate-formule .sheet-dice-box h1, .sheet-rolltemplate-opposition .sheet-dice-box h1, .sheet-rolltemplate-ka .sheet-dice-box h1 {
+.sheet-rolltemplate-formule .sheet-dice-box h1, .sheet-rolltemplate-opposition .sheet-dice-box h1, .sheet-rolltemplate-ka .sheet-dice-box h1,
+.sheet-rolltemplate-pavane .sheet-dice-box h1, .sheet-rolltemplate-opposition .sheet-dice-box h1, .sheet-rolltemplate-ka .sheet-dice-box h1,
+.sheet-rolltemplate-imago .sheet-dice-box h1 {
     font-size: 1.4em;
     text-align: center;
     letter-spacing: 2px;    
@@ -1212,20 +1216,26 @@ input[type=text].sheet-verylonginputtext{
 }
 
 .sheet-rolltemplate-invoc .sheet-dice-subheader, .sheet-rolltemplate-vecu .sheet-dice-subheader, .sheet-rolltemplate-sort .sheet-dice-subheader,
-.sheet-rolltemplate-formule .sheet-dice-subheader, .sheet-rolltemplate-opposition .sheet-dice-subheader, .sheet-rolltemplate-ka .sheet-dice-subheader{
+.sheet-rolltemplate-formule .sheet-dice-subheader, .sheet-rolltemplate-opposition .sheet-dice-subheader, .sheet-rolltemplate-ka .sheet-dice-subheader,
+.sheet-rolltemplate-pavane .sheet-dice-subheader, .sheet-rolltemplate-opposition .sheet-dice-subheader, .sheet-rolltemplate-ka .sheet-dice-subheader,
+.sheet-rolltemplate-imago .sheet-dice-subheader {
     font-size: 1.2em;
     margin: 5px auto;
     text-align: center;
     line-height: 20px;
 }
 .sheet-rolltemplate-invoc .sheet-dice-bold, .sheet-rolltemplate-vecu .sheet-dice-bold,.sheet-rolltemplate-sort .sheet-dice-bold,
-.sheet-rolltemplate-formule .sheet-dice-bold, .sheet-rolltemplate-opposition .sheet-dice-bold, .sheet-rolltemplate-ka .sheet-dice-bold  {
+.sheet-rolltemplate-formule .sheet-dice-bold, .sheet-rolltemplate-opposition .sheet-dice-bold, .sheet-rolltemplate-ka .sheet-dice-bold,
+.sheet-rolltemplate-pavane .sheet-dice-bold, .sheet-rolltemplate-opposition .sheet-dice-bold, .sheet-rolltemplate-ka .sheet-dice-bold,
+.sheet-rolltemplate-imago .sheet-dice-bold {
     font-weight: bolder;
     text-transform: capitalize;
 }
 
 .sheet-rolltemplate-invoc .sheet-dice-main, .sheet-rolltemplate-vecu .sheet-dice-main, .sheet-rolltemplate-sort .sheet-dice-main,
-.sheet-rolltemplate-formule .sheet-dice-main, .sheet-rolltemplate-opposition .sheet-dice-main, .sheet-rolltemplate-ka .sheet-dice-main {
+.sheet-rolltemplate-formule .sheet-dice-main, .sheet-rolltemplate-opposition .sheet-dice-main, .sheet-rolltemplate-ka .sheet-dice-main,
+.sheet-rolltemplate-pavane .sheet-dice-main, .sheet-rolltemplate-opposition .sheet-dice-main, .sheet-rolltemplate-ka .sheet-dice-main,
+.sheet-rolltemplate-imago .sheet-dice-main {
     border-top: dotted 1px dimgray;
     margin-top: 5px;
 }
@@ -1237,19 +1247,24 @@ input[type=text].sheet-verylonginputtext{
     text-align: center;
     width: 100%;
 }
-.sheet-rolltemplate-invoc .sheet-dice-effect, .sheet-rolltemplate-sort .sheet-dice-effect, .sheet-rolltemplate-formule .sheet-dice-effect {
+.sheet-rolltemplate-invoc .sheet-dice-effect, .sheet-rolltemplate-sort .sheet-dice-effect, .sheet-rolltemplate-formule .sheet-dice-effect,
+.sheet-rolltemplate-pavane .sheet-dice-effect {
     margin: 5px auto;
     border-top: dotted 1px dimgray;
     padding: 5px 0;
 }
 .sheet-rolltemplate-invoc .sheet-dice-roll, .sheet-rolltemplate-vecu .sheet-dice-roll, .sheet-rolltemplate-sort .sheet-dice-roll,
-.sheet-rolltemplate-formule .sheet-dice-roll, .sheet-rolltemplate-opposition .sheet-dice-roll, .sheet-rolltemplate-ka .sheet-dice-roll {
+.sheet-rolltemplate-formule .sheet-dice-roll, .sheet-rolltemplate-opposition .sheet-dice-roll, .sheet-rolltemplate-ka .sheet-dice-roll,
+.sheet-rolltemplate-pavane .sheet-dice-roll, .sheet-rolltemplate-opposition .sheet-dice-roll, .sheet-rolltemplate-ka .sheet-dice-roll,
+.sheet-rolltemplate-imago .sheet-dice-roll {
     text-align: center;
     line-height: 22px;
 }
 
 .sheet-rolltemplate-invoc .sheet-dice-result-ko,.sheet-rolltemplate-vecu .sheet-dice-result-ko, .sheet-rolltemplate-sort .sheet-dice-result-ko,
-.sheet-rolltemplate-formule .sheet-dice-result-ko, .sheet-rolltemplate-opposition .sheet-dice-result-ko, .sheet-rolltemplate-ka .sheet-dice-result-ko {
+.sheet-rolltemplate-formule .sheet-dice-result-ko, .sheet-rolltemplate-opposition .sheet-dice-result-ko, .sheet-rolltemplate-ka .sheet-dice-result-ko,
+.sheet-rolltemplate-pavane .sheet-dice-result-ko, .sheet-rolltemplate-opposition .sheet-dice-result-ko, .sheet-rolltemplate-ka .sheet-dice-result-ko,
+.sheet-rolltemplate-imago .sheet-dice-result-ko {
     font-weight: bold;
     text-align: center;
     font-size: 1.4em;
@@ -1258,7 +1273,9 @@ input[type=text].sheet-verylonginputtext{
 }
 
 .sheet-rolltemplate-invoc .sheet-dice-result-ok, .sheet-rolltemplate-vecu .sheet-dice-result-ok, .sheet-rolltemplate-sort .sheet-dice-result-ok,
-.sheet-rolltemplate-formule .sheet-dice-result-ok, .sheet-rolltemplate-opposition .sheet-dice-result-ok, .sheet-rolltemplate-ka .sheet-dice-result-ok {
+.sheet-rolltemplate-formule .sheet-dice-result-ok, .sheet-rolltemplate-opposition .sheet-dice-result-ok, .sheet-rolltemplate-ka .sheet-dice-result-ok,
+.sheet-rolltemplate-pavane .sheet-dice-result-ok, .sheet-rolltemplate-opposition .sheet-dice-result-ok, .sheet-rolltemplate-ka .sheet-dice-result-ok,
+.sheet-rolltemplate-imago .sheet-dice-result-ok {
     font-weight: bold;
     text-align: center;
     font-size: 1.4em;
@@ -1267,7 +1284,9 @@ input[type=text].sheet-verylonginputtext{
 }
 
 .sheet-rolltemplate-invoc .inlinerollresult, .sheet-rolltemplate-vecu .inlinerollresult, .sheet-rolltemplate-sort .inlinerollresult,
-.sheet-rolltemplate-formule .inlinerollresult, .sheet-rolltemplate-opposition .inlinerollresult, .sheet-rolltemplate-ka .inlinerollresult {
+.sheet-rolltemplate-formule .inlinerollresult, .sheet-rolltemplate-opposition .inlinerollresult, .sheet-rolltemplate-ka .inlinerollresult,
+.sheet-rolltemplate-pavane .inlinerollresult, .sheet-rolltemplate-opposition .inlinerollresult, .sheet-rolltemplate-ka .inlinerollresult,
+.sheet-rolltemplate-imago .inlinerollresult {
     display: inline-block;
     min-width: 1.5em;
     font-size: x-large;
@@ -1277,7 +1296,9 @@ input[type=text].sheet-verylonginputtext{
 }
 
 .sheet-rolltemplate-invoc .inlinerollresult.fullfail, .sheet-rolltemplate-vecu .inlinerollresult.fullfail, .sheet-rolltemplate-sort .inlinerollresult.fullfail,
-.sheet-rolltemplate-formule .inlinerollresult.fullfail, .sheet-rolltemplate-opposition .inlinerollresult.fullfail, .sheet-rolltemplate-ka .inlinerollresult.fullfail {
+.sheet-rolltemplate-formule .inlinerollresult.fullfail, .sheet-rolltemplate-opposition .inlinerollresult.fullfail, .sheet-rolltemplate-ka .inlinerollresult.fullfail,
+.sheet-rolltemplate-pavane .inlinerollresult.fullfail, .sheet-rolltemplate-opposition .inlinerollresult.fullfail, .sheet-rolltemplate-ka .inlinerollresult.fullfail,
+.sheet-rolltemplate-ka .inlinerollresult.fullfail {
     border: none;
 }
 
@@ -1295,7 +1316,9 @@ input[type=text].sheet-verylonginputtext{
 }
 
 .sheet-rolltemplate-invoc .sheet-bg-invoc, .sheet-rolltemplate-vecu .sheet-bg-vecu, .sheet-rolltemplate-sort .sheet-bg-sort,
-.sheet-rolltemplate-formule .sheet-bg-formule, .sheet-rolltemplate-opposition .sheet-bg-opposition, .sheet-rolltemplate-ka .sheet-bg-ka {
+.sheet-rolltemplate-formule .sheet-bg-formule, .sheet-rolltemplate-opposition .sheet-bg-opposition, .sheet-rolltemplate-ka .sheet-bg-ka,
+.sheet-rolltemplate-pavane .sheet-bg-pavane, .sheet-rolltemplate-opposition .sheet-bg-opposition, .sheet-rolltemplate-ka .sheet-bg-ka,
+.sheet-rolltemplate-imago .sheet-bg-imago {
     background-image: url("https://raw.githubusercontent.com/rwanoux/roll20-character-sheets/master/nephilimV5-vf/backgrd.png");
     background-size: cover;
 }
@@ -1303,9 +1326,11 @@ input[type=text].sheet-verylonginputtext{
 /* Suppression succès critique - jet de 100 */
 .sheet-rolltemplate-opposition .inlinerollresult.fullcrit,
 .sheet-rolltemplate-formule .inlinerollresult.fullcrit,
+.sheet-rolltemplate-pavane .inlinerollresult.fullcrit,
 .sheet-rolltemplate-sort .inlinerollresult.fullcrit,
 .sheet-rolltemplate-vecu .inlinerollresult.fullcrit,
 .sheet-rolltemplate-ka .inlinerollresult.fullcrit,
-.sheet-rolltemplate-invoc .inlinerollresult.fullcrit {
+.sheet-rolltemplate-invoc .inlinerollresult.fullcrit,
+.sheet-rolltemplate-imago .inlinerollresult.fullcrit {
     border: none !important;
 }
