@@ -381,6 +381,13 @@ button.sheet-rolldice:before, button.sheet-rollsword:before {
     height: 300px;
 }
 
+.sheet-elements-selenim {
+    background-image: url("https://raw.githubusercontent.com/kapp-j/roll20-character-sheets-1/nephilim-legende-selenim/Nephilim-Legende-Selenim/images/noyau.png");
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}
+
 .sheet-kafeu {
     align-content: center;
     width: 60px;
@@ -431,6 +438,29 @@ button.sheet-rolldice:before, button.sheet-rollsword:before {
 .sheet-katerre button {
     margin: -3px 0 0 -8px !important;
 }
+
+.sheet-kalunenoire {
+    align-content: center;
+    width: 60px;
+    position: relative;
+    left: 78px;
+    top: 57px;
+}
+
+.sheet-kalunenoire button {
+    margin: 0 0 0 -3px !important;
+}
+
+.sheet-reserve {
+    width: 60px;
+    position: relative;
+    left: 182px;
+    top: 126px;
+}
+.sheet-reserve button {
+    margin: 0 0 0 -20px !important;
+}
+
 .sheet-test {
     height: 30px;
     border-top: 1px solid #bc6d10;
@@ -688,7 +718,8 @@ input.sheet-practice-nephilim:checked~.sheet-tab-optionnal3,
 input.sheet-practice-nephilim:checked~input.sheet-practice-mag:checked~.sheet-tab-optionnal4,
 input.sheet-practice-nephilim:checked~input.sheet-practice-kabb:checked~.sheet-tab-optionnal5,
 input.sheet-practice-nephilim:checked~input.sheet-practice-alch:checked~.sheet-tab-optionnal6,
-input.sheet-practice-nephilim:checked~.sheet-tab-optionnal7 {
+input.sheet-practice-nephilim:checked~.sheet-tab-optionnal7,
+input.sheet-practice-selenim:checked~.sheet-tab-optionnal8 {
     display: inline;
 }
 
@@ -700,7 +731,8 @@ input.sheet-tab5:checked~div.sheet-tab5,
 input.sheet-tab6:checked~div.sheet-tab6,
 input.sheet-tab7:checked~div.sheet-tab7,
 input.sheet-tab8:checked~div.sheet-tab8,
-input.sheet-tab9:checked~div.sheet-tab9  {
+input.sheet-tab9:checked~div.sheet-tab9,
+input.sheet-tab10:checked~div.sheet-tab10  {
     display: block;
 }
 

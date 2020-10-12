@@ -5,6 +5,7 @@
 <input type="checkbox" id="practice_magie" name="attr_practice_magie" class="sheet-checkbox-tab sheet-practice-mag"><label for="practice_magie" class="sheet-bla">La Magie</label>
 <input type="checkbox" id="practice_kabb" name="attr_practice_kabb" class="sheet-checkbox-tab sheet-practice-kabb"><label for="practice_kabb" class="sheet-bla">La Kabbale</label>
 <input type="checkbox" id="practice_alch" name="attr_practice_alch" class="sheet-checkbox-tab sheet-practice-alch"><label for="practice_alch" class="sheet-bla">L'Alchimie</label>
+<input type="checkbox" id="practice_selenim" name="attr_practice_selenim" class="sheet-checkbox-tab sheet-practice-selenim"><label for="practice_selenim" class="sheet-bla">Selenim</label>
 
 <div></div>
 <!------------------------------------ Generic tabs ------------------------------------------->
@@ -18,6 +19,7 @@
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab7 sheet-tab-optionnal sheet-tab-optionnal6" value="7" /><span class="sheet-tab-optionnal sheet-tab-optionnal6" title="Alchimie"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab8 sheet-tab-optionnal sheet-tab-optionnal6" value="8" /><span class="sheet-tab-optionnal sheet-tab-optionnal6" title="Constructs"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab9 sheet-tab-optionnal sheet-tab-optionnal7" value="9" /><span class="sheet-tab-optionnal sheet-tab-optionnal7" title="Fraternité"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab10 sheet-tab-optionnal sheet-tab-optionnal8" value="10" /><span class="sheet-tab-optionnal sheet-tab-optionnal8" title="Selenim"></span>
 
 <div class="sheet-test"></div>
 
@@ -925,6 +927,92 @@
 
 </div>
 
+<!------------------------------------------- Page 10 - Selenim ------------------------------------------->
+<div class="sheet-tab-content sheet-tab10">
+    <div class="sheet-main">
+
+        <div class="sheet-box sheet-charact">
+            <div class="sheet-attrib">
+                <div class="sheet-bigtext">Nom : </div> <input type="text" name="attr_character_name" class="sheet-name" />
+            </div>
+            <div class="sheet-main sheet-attrib">
+                <textarea rows="3" name="attr_sel_une_phrase" placeholder="Votre Selenim en quelques phrases....."></textarea>
+
+            </div>
+            <div class="sheet-main sheet-attrib">
+				<div class="sheet-bigtext">Votre Royaume : </div>
+                <textarea rows="3" name="attr_roy_une_phrase"></textarea>
+
+            </div>
+            <div class="sheet-main sheet-attrib">
+				<div class="sheet-bigtext">Vos Sans Repos : </div>
+                <textarea rows="3" name="attr_sans_repos"></textarea>
+
+            </div>
+        </div>
+		
+        <div class="sheet-box">
+			<div class="sheet-elements-selenim">
+				<div class="sheet-kalunenoire">
+					<input class="sheet-rond sheet-ka" type="number" name="attr_kalunenoire" />
+					<button type="roll" class="sheet-karoll" style="color:white" name="karolllunenoire" value="&{template:ka} {{perso= @{character_name} }} {{nom_ka=Ka Lune Noire}} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{kalunenoire}[ Ka Lune Noire ])*10 ]] }} ">Noyau</button>
+				</div>
+				
+				<div class="sheet-reserve">
+					<input class="sheet-rond sheet-ka" type="number" name="attr_reserve" />
+					<button class="sheet-karoll" style="color:white" name="reservemax">Réserve Max</button>
+				</div>
+				
+			</div>
+			<div class="sheet-header"><img src="https://raw.githubusercontent.com/roll20/roll20-character-sheets/master/Nephilim-Legende/images/nephilim.png"/></div>
+		</div>
+
+        <div class="sheet-box">
+
+            <div class="sheet-attrib">
+                <div class="sheet-bigtext">Points de sapience : </div><input class="sheet-carre" name="attr_sapience" type="number" />
+
+            </div>
+            <div class="sheet-box sheet-attrib">
+                <h1>Chutes</h1>
+                <div class="sheet-details-chutes">
+                    <span class="sheet-petit">Ashavérus</span>
+                    <input type="number" class="sheet-carre sheet-floatright" name="attr_asha">
+                    <div class="sheet-right">
+                        <input type="radio" class="sheet-compteur sheet-zero" name="attr_asha" value="0" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="1" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="2" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="3" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="4" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="5" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="6" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="7" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="8" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="9" /><span></span>
+                        <input type="radio" class="sheet-compteur" name="attr_asha" value="10" /><span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sheet-attrib sheet-main">
+                <h1 style="display:inline-block">Pavane</h1>
+                <div class="sheet-pavane">
+                    <input class="sheet-carre" name="attr_simu-attr_pavane_degre" type="number" /><button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-pavane" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:pavane} {{perso= @{character_name} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{ Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{simu-attr_pavane_degre}[ Pavane ])*10 ]] }} "></button>
+                </div>
+            </div>
+
+            <div class="sheet-attrib sheet-main">
+                <h1 style="display:inline-block">Réserve courante</h1>
+                <div class="sheet-pavane">
+                    <input class="sheet-carre" name="attr_simu-attr_reserve-degre" type="number" />
+                </div>
+            </div>
+			
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <!------------------------------------- End HTML Page ------------------------------------->
 
