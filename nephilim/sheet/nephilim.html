@@ -1766,6 +1766,32 @@
     </div>
 </rolltemplate>
 
+<!------------------------------------- Pavane-Roll Template ------------------------------------->
+<rolltemplate class="sheet-rolltemplate-pavane">
+    <div class="sheet-dice-box sheet-bg-pavane">
+        <h1>{{perso}}</h1>
+        <div class="sheet-dice-subheader">
+            <div>Ecoute la Pavane : </div>
+        </div>
+        <div class="sheet-dice-main">
+            <div class="sheet-dice-roll">
+                <div>Résultat du jet :</div>
+                <div>{{jet}} ( {{seuil}} )</div>
+            </div>
+        
+            {{#rollLess() seuil jet}}
+                    <div class="sheet-dice-result-ko">Echec</div>
+            {{/rollLess() seuil jet}}
+            
+            {{#rollGreater() seuil jet}}
+                    <div class="sheet-dice-result-ok">Réussite</div>
+            {{/rollGreater() seuil jet}}
+            {{#rollTotal() seuil jet}}
+                    <div class="sheet-dice-result-ok">Réussite</div>
+            {{/rollTotal() seuil jet}}
+        </div>
+    </div>
+</rolltemplate>
 
 <!------------------------------------- Imago-Roll Template ------------------------------------->
 <rolltemplate class="sheet-rolltemplate-imago">
