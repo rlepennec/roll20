@@ -525,7 +525,7 @@
         <fieldset class="repeating_mag-sort">
             <div class="sheet-mag-sort-spec">
                 <div class="sheet-ligne">
-                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_mag-sort-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:sort} {{perso= @{character_name} }} {{nom_sort= @{mag-sort-nom} }} {{descrip_sort= @{mag-sort-desc} }} {{portee_sort= @{mag-sort-portee} }} {{duree_sort= @{mag-sort-duree} }} {{degre= @{mag-sort-degre} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{mag-sort-current}[ Magie + Ka - Degré ])*10 ]] }} "></button>
+                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_mag-sort-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:sort-nephilim} {{perso= @{character_name} }} {{nom_sort= @{mag-sort-nom} }} {{descrip_sort= @{mag-sort-desc} }} {{portee_sort= @{mag-sort-portee} }} {{duree_sort= @{mag-sort-duree} }} {{degre= @{mag-sort-degre} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{mag-sort-current}[ Magie + Ka - Degré ])*10 ]] }} "></button>
                 </div>
                 <div class="sheet-ligne">
                     <div class="sheet-bigtext">Voie : </div>
@@ -634,7 +634,7 @@
         <fieldset class="repeating_kabb-invoc">
             <div class="sheet-kabb-invoc-spec">
                 <div class="sheet-ligne">
-                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_kabb-invoc-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:invoc} {{perso= @{character_name} }} {{nom_creature= @{kabb-invoc-nom} }} {{descrip_sort= @{kabb-invoc-desc} }} {{portee_sort= @{kabb-invoc-portee} }} {{duree_sort= @{kabb-invoc-duree} }} {{degre= @{kabb-invoc-degre} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{kabb-invoc-current}[ Kabbale + Ka ])*10 ]] }} "></button><button type="roll" class="sheet-rollsword btn ui-draggable" name="sheet-simu-roll-opposition" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:opposition} {{perso= @{character_name} }} {{nom_creature= @{kabb-invoc-nom} }} {{jet=[[ 1d100 ]] }} {{seuil=[[(?{Bonus / malus ?|0}[Bonus, malus, vécus, etc. ]+@{kabb-invoc-current}[ Kabbale + Ka ])*10 ]] }} {{jet_degre=[[ 1d100 ]] }} {{niv-degre=[[@{kabb-invoc-degre}[ Degré ]*10 ]] }}"></button>
+                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_kabb-invoc-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:invoc-nephilim} {{perso= @{character_name} }} {{nom_creature= @{kabb-invoc-nom} }} {{descrip_sort= @{kabb-invoc-desc} }} {{portee_sort= @{kabb-invoc-portee} }} {{duree_sort= @{kabb-invoc-duree} }} {{degre= @{kabb-invoc-degre} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{kabb-invoc-current}[ Kabbale + Ka ])*10 ]] }} "></button><button type="roll" class="sheet-rollsword btn ui-draggable" name="sheet-simu-roll-opposition" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:opposition-nephilim} {{perso= @{character_name} }} {{nom_creature= @{kabb-invoc-nom} }} {{jet=[[ 1d100 ]] }} {{seuil=[[(?{Bonus / malus ?|0}[Bonus, malus, vécus, etc. ]+@{kabb-invoc-current}[ Kabbale + Ka ])*10 ]] }} {{jet_degre=[[ 1d100 ]] }} {{niv-degre=[[@{kabb-invoc-degre}[ Degré ]*10 ]] }}"></button>
                 </div>
                 <div class="sheet-ligne">
                     <div class="sheet-bigtext">Sephira : </div>
@@ -1304,7 +1304,7 @@
         <fieldset class="repeating_mag-sort">
             <div class="sheet-necr-sort-spec">
                 <div class="sheet-ligne">
-                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_necr-sort-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:sort} {{perso= @{character_name} }} {{nom_sort= @{necr-sort-nom} }} {{descrip_sort= @{necr-sort-desc} }} {{cout_sort= @{necr-sort-cout} }} {{duree_sort= @{necr-sort-duree} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{necr-degre}[ nécromancie ])*10 ]] }} "></button>
+                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_necr-sort-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:sort-selenim} {{perso= @{character_name} }} {{nom_sort= @{necr-sort-nom} }} {{descrip_sort= @{necr-sort-desc} }} {{cout_sort= @{necr-sort-cout} }} {{duree_sort= @{necr-sort-duree} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{necr-degre}[ nécromancie ])*10 ]] }} "></button>
                 </div>   
                 <div class="sheet-ligne">
                     <div class="sheet-bigtext">Cout : </div><input type="text" class="sheet-longinputtext" name="attr_necr-sort-cout" />
@@ -1333,7 +1333,7 @@
         <fieldset class="repeating_kabbN-invoc">
             <div class="sheet-kabbN-invoc-spec">
                 <div class="sheet-ligne">
-                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_kabbN-invoc-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:invoc} {{perso= @{character_name} }} {{nom_creature= @{kabbN-invoc-nom} }} {{descrip_sort= @{kabbN-invoc-desc} }} {{cout_sort= @{kabbN-invoc-cout} }} {{entropie_sort= @{kabbN-invoc-entropie} }} {{controle_sort= @{kabbN-invoc-controle} }} {{dommage_sort= @{kabbN-invoc-dommage} }} {{protection_sort= @{kabbN-invoc-protection} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{kabbN-degre}[ Kabbale Noire ])*10 ]] }} "></button><button type="roll" class="sheet-rollsword btn ui-draggable" name="sheet-simu-roll-opposition" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:opposition} {{perso= @{character_name} }} {{nom_creature= @{kabbN-invoc-nom} }} {{jet=[[ 1d100 ]] }} {{seuil=[[(?{Bonus / malus ?|0}[Bonus, malus, vécus, etc. ]+@{kalunenoire}[ Ka Lune Noire ]+@{simu-attr_reserve-degre}[ Réserve ])*10 ]] }} {{jet_degre=[[ 1d100 ]] }} {{niv-degre=[[@{kabbN-invoc-cout}[ Degré ]*10 ]] }}"></button>
+                    <div class="sheet-bigtext">Nom : </div><input type="text" class="sheet-longinputtext sheet-firstinput" name="attr_kabbN-invoc-nom" /> <button type="roll" class="sheet-rolldice btn ui-draggable" name="sheet-simu-roll-vecu" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:invoc-selenim} {{perso= @{character_name} }} {{nom_creature= @{kabbN-invoc-nom} }} {{descrip_sort= @{kabbN-invoc-desc} }} {{cout_sort= @{kabbN-invoc-cout} }} {{entropie_sort= @{kabbN-invoc-entropie} }} {{controle_sort= @{kabbN-invoc-controle} }} {{dommage_sort= @{kabbN-invoc-dommage} }} {{protection_sort= @{kabbN-invoc-protection} }} {{jet=[[ 1d100 ]] }}{{seuil=[[(?{Bonus / malus ?|0}[ Bonus, malus, vécus, etc. ]+@{kabbN-degre}[ Kabbale Noire ])*10 ]] }} "></button><button type="roll" class="sheet-rollsword btn ui-draggable" name="sheet-simu-roll-opposition" style="color: rgb( 51 , 87 , 88 )" value="&amp;{template:opposition-selenim} {{perso= @{character_name} }} {{nom_creature= @{kabbN-invoc-nom} }} {{jet=[[ 1d100 ]] }} {{seuil=[[(?{Bonus / malus ?|0}[Bonus, malus, vécus, etc. ]+@{kalunenoire}[ Ka Lune Noire ]+@{simu-attr_reserve-degre}[ Réserve ])*10 ]] }} {{jet_degre=[[ 1d100 ]] }} {{niv-degre=[[@{kabbN-invoc-cout}[ Degré ]*10 ]] }}"></button>
                 </div>
                 <div class="sheet-ligne">
                     <div class="sheet-bigtext">Controle : </div>
@@ -1468,8 +1468,8 @@
     </div>
 </rolltemplate>
 
-<!------------------------------------- Sort-Roll Template ------------------------------------->
-<rolltemplate class="sheet-rolltemplate-sort">
+<!------------------------------------- Sort-Roll Template Nephilim ------------------------------->
+<rolltemplate class="sheet-rolltemplate-sort-nephilim">
     <div class="sheet-dice-box sheet-bg-sort">
         <h1>{{perso}}</h1>
         <div class="sheet-dice-subheader">
@@ -1507,8 +1507,47 @@
     </div>
 </rolltemplate>
 
-<!------------------------------------- Invocation-Roll Template ------------------------------------->
-<rolltemplate class="sheet-rolltemplate-invoc">
+<!------------------------------------- Sort-Roll Template Selenim -------------------------------->
+<rolltemplate class="sheet-rolltemplate-sort-selenim">
+    <div class="sheet-dice-box sheet-bg-sort">
+        <h1>{{perso}}</h1>
+        <div class="sheet-dice-subheader">
+            <div>Lance le sort : </div>
+            <div><span class="sheet-dice-bold">{{nom_sort}}</span></div>
+        </div>
+        <div class="sheet-dice-main">
+            <div class="sheet-dice-roll">
+                <div>Résultat du jet :</div>
+                <div>{{jet}} ( {{seuil}} )</div>
+            </div>
+        
+            {{#rollLess() seuil jet}}
+                    <div class="sheet-dice-result-ko">Echec</div>
+                    <div class="sheet-dice-effect">
+                        <div><span class="sheet-dice-bold">Cout : </span>{{cout_sort}}</div>
+                    </div>
+            {{/rollLess() seuil jet}}
+            
+            {{#rollGreater() seuil jet}}
+                    <div class="sheet-dice-result-ok">Réussite</div>
+                    <div class="sheet-dice-effect">
+                        <div><span class="sheet-dice-bold">Cout : </span>{{cout_sort}}</div>
+                        <div><span class="sheet-dice-bold">Effet : </span>{{descrip_sort}}</div>
+                    </div>
+            {{/rollGreater() seuil jet}}
+            {{#rollTotal() seuil jet}}
+                    <div class="sheet-dice-result-ok">Réussite</div>
+                    <div class="sheet-dice-effect">
+                        <div><span class="sheet-dice-bold">Cout : </span>{{cout_sort}}</div>
+                        <div><span class="sheet-dice-bold">Effet : </span>{{descrip_sort}}</div>
+                    </div>
+            {{/rollTotal() seuil jet}}
+        </div>
+    </div>
+</rolltemplate>
+
+<!------------------------------------- Invocation-Roll Template Nephilim ------------------------------->
+<rolltemplate class="sheet-rolltemplate-invoc-nephilim">
     <div class="sheet-dice-box sheet-bg-invoc">
         <h1>{{perso}}</h1>
         <div class="sheet-dice-subheader">
@@ -1546,8 +1585,55 @@
     </div>
 </rolltemplate>
 
-<!------------------------------------- Opposition-Roll Template ------------------------------------->
-<rolltemplate class="sheet-rolltemplate-opposition">
+	<!------------------------------------- Invocation-Roll Template Selenim ----------------------------->
+    <rolltemplate class="sheet-rolltemplate-invoc-selenim">
+        <div class="sheet-dice-box sheet-bg-invoc">
+            <h1>{{perso}}</h1>
+            <div class="sheet-dice-subheader">
+                <div>Invoque la créature : </div>
+                <div><span class="sheet-dice-bold">{{nom_creature}}</span></div>
+            </div>
+            <div class="sheet-dice-main">
+                <div class="sheet-dice-roll">
+                    <div>Résultat du jet :</div>
+                    <div>{{jet}} ( {{seuil}} )</div>
+                </div>
+            
+                {{#rollLess() seuil jet}}
+                        <div class="sheet-dice-result-ko">Echec</div>
+                        <div class="sheet-dice-effect">
+                            <div><span class="sheet-dice-bold">Cout : </span>{{cout_sort}}</div>
+                        </div>
+                {{/rollLess() seuil jet}}
+                
+                {{#rollGreater() seuil jet}}
+                        <div class="sheet-dice-result-ok">Réussite</div>
+                        <div class="sheet-dice-effect">
+                            <div><span class="sheet-dice-bold">Cout : </span>{{cout_sort}}</div>
+                            <div><span class="sheet-dice-bold">Durée : </span>{{duree_sort}}</div>
+                            <div><span class="sheet-dice-bold">Entropie : </span>{{entropie_sort}}</div>
+                            <div><span class="sheet-dice-bold">Dommage : </span>{{dommage_sort}}</div>
+                            <div><span class="sheet-dice-bold">Controle : </span>{{controle_sort}}</div>
+                            <div><span class="sheet-dice-bold">Effet : </span>{{descrip_sort}}</div>
+                        </div>
+                {{/rollGreater() seuil jet}}
+                {{#rollTotal() seuil jet}}
+                        <div class="sheet-dice-result-ok">Réussite</div>
+                        <div class="sheet-dice-effect">
+                            <div><span class="sheet-dice-bold">Cout : </span>{{cout_sort}}</div>
+                            <div><span class="sheet-dice-bold">Durée : </span>{{duree_sort}}</div>
+                            <div><span class="sheet-dice-bold">Entropie : </span>{{entropie_sort}}</div>
+                            <div><span class="sheet-dice-bold">Dommage : </span>{{dommage_sort}}</div>
+                            <div><span class="sheet-dice-bold">Controle : </span>{{controle_sort}}</div>
+                            <div><span class="sheet-dice-bold">Effet : </span>{{descrip_sort}}</div>
+                        </div>
+                {{/rollTotal() seuil jet}}
+            </div>
+        </div>
+    </rolltemplate>
+
+<!------------------------------------- Opposition-Roll Template Nephilim ------------------------------->
+<rolltemplate class="sheet-rolltemplate-opposition-nephilim">
     <div class="sheet-dice-box sheet-bg-opposition">
         <h1>{{perso}}</h1>
         <div class="sheet-dice-subheader">
@@ -1590,6 +1676,55 @@
                             <div class="sheet-dice-result-ok">Réussite</div>
                     {{/rollGreater() niv-degre jet_degre}}
 
+                    {{#rollTotal() niv-degre jet_degre}}
+                            <div class="sheet-dice-result-ok">Réussite</div>
+                    {{/rollTotal() niv-degre jet_degre}}
+                </div>
+            </div>
+        </div>
+    </div>
+</rolltemplate>
+
+<!------------------------------------- Opposition-Roll Template Selenim -------------------------------->
+<rolltemplate class="sheet-rolltemplate-opposition-selenim">
+    <div class="sheet-dice-box sheet-bg-opposition">
+        <h1>{{perso}}</h1>
+        <div class="sheet-dice-subheader">
+            <div>Essaye de controler : </div>
+            <div><span class="sheet-dice-bold">{{nom_creature}}</span></div>
+        </div>
+        <div class="sheet-dice-main">
+            <!------ Personnage ------>
+            <div class="sheet-dice-col2">
+                <div class="sheet-dice-ligne">{{perso}}</div>
+                <div class="sheet-dice-ligne">{{jet}}</div>
+                <div class="sheet-dice-ligne">
+                    {{#rollLess() seuil jet}}
+                            <div class="sheet-dice-result-ko">Echec</div>
+                    {{/rollLess() seuil jet}}
+                    
+                    {{#rollGreater() seuil jet}}
+                            <div class="sheet-dice-result-ok">Réussite</div>
+                    {{/rollGreater() seuil jet}}
+                    {{#rollTotal() seuil jet}}
+                            <div class="sheet-dice-result-ok">Réussite</div>
+                    {{/rollTotal() seuil jet}}
+                </div>
+            </div>
+            <div class="sheet-dice-col-inter"><span class="sheet-dice-bold">VS</span></div>
+            
+            <!------ Creature ------>
+            <div class="sheet-dice-col2">
+                <div class="sheet-dice-ligne">{{nom_creature}}</div>
+                <div class="sheet-dice-ligne">{{jet_degre}}</div>
+                <div class="sheet-dice-ligne">
+                    {{#rollLess() niv-degre jet_degre}}
+                            <div class="sheet-dice-result-ko">Echec</div>
+                    {{/rollLess() niv-degre jet_degre}}
+                    
+                    {{#rollGreater() niv-degre jet_degre}}
+                            <div class="sheet-dice-result-ok">Réussite</div>
+                    {{/rollGreater() niv-degre jet_degre}}
                     {{#rollTotal() niv-degre jet_degre}}
                             <div class="sheet-dice-result-ok">Réussite</div>
                     {{/rollTotal() niv-degre jet_degre}}

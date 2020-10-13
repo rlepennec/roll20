@@ -1191,13 +1191,12 @@ input[type=text].sheet-verylonginputtext{
     width: 550px;
 }
 
-
-
 /* Roll Templates */
 
-.sheet-rolltemplate-invoc .sheet-dice-box, .sheet-rolltemplate-vecu .sheet-dice-box, .sheet-rolltemplate-sort .sheet-dice-box,
-.sheet-rolltemplate-formule .sheet-dice-box, .sheet-rolltemplate-opposition .sheet-dice-box, .sheet-rolltemplate-ka .sheet-dice-box,
-.sheet-rolltemplate-pavane .sheet-dice-box, .sheet-rolltemplate-opposition .sheet-dice-box, .sheet-rolltemplate-ka .sheet-dice-box,
+.sheet-rolltemplate-invoc-nephilim .sheet-dice-box, .sheet-rolltemplate-vecu .sheet-dice-box, .sheet-rolltemplate-sort-nephilim .sheet-dice-box,
+.sheet-rolltemplate-invoc-selenim .sheet-dice-box, .sheet-rolltemplate-vecu .sheet-dice-box, .sheet-rolltemplate-sort-selenim .sheet-dice-box,
+.sheet-rolltemplate-formule .sheet-dice-box, .sheet-rolltemplate-opposition-nephilim .sheet-dice-box, .sheet-rolltemplate-ka .sheet-dice-box,
+.sheet-rolltemplate-pavane .sheet-dice-box, .sheet-rolltemplate-opposition-selenim .sheet-dice-box, .sheet-rolltemplate-ka .sheet-dice-box,
 .sheet-rolltemplate-imago .sheet-dice-box {
     font-size: 1em;
     font-family: 'Kalam', cursive;
@@ -1205,9 +1204,10 @@ input[type=text].sheet-verylonginputtext{
     padding: 4px ;
 }
 
-.sheet-rolltemplate-invoc .sheet-dice-box h1, .sheet-rolltemplate-vecu .sheet-dice-box h1, .sheet-rolltemplate-sort .sheet-dice-box h1,
-.sheet-rolltemplate-formule .sheet-dice-box h1, .sheet-rolltemplate-opposition .sheet-dice-box h1, .sheet-rolltemplate-ka .sheet-dice-box h1,
-.sheet-rolltemplate-pavane .sheet-dice-box h1, .sheet-rolltemplate-opposition .sheet-dice-box h1, .sheet-rolltemplate-ka .sheet-dice-box h1,
+.sheet-rolltemplate-invoc-nephilim .sheet-dice-box h1, .sheet-rolltemplate-vecu .sheet-dice-box h1, .sheet-rolltemplate-sort-nephilim .sheet-dice-box h1,
+.sheet-rolltemplate-invoc-selenim .sheet-dice-box h1, .sheet-rolltemplate-vecu .sheet-dice-box h1, .sheet-rolltemplate-sort-selenim .sheet-dice-box h1,
+.sheet-rolltemplate-formule .sheet-dice-box h1, .sheet-rolltemplate-opposition-nephilim .sheet-dice-box h1, .sheet-rolltemplate-ka .sheet-dice-box h1,
+.sheet-rolltemplate-pavane .sheet-dice-box h1, .sheet-rolltemplate-opposition-selenim .sheet-dice-box h1, .sheet-rolltemplate-ka .sheet-dice-box h1,
 .sheet-rolltemplate-imago .sheet-dice-box h1 {
     font-size: 1.4em;
     text-align: center;
@@ -1215,55 +1215,72 @@ input[type=text].sheet-verylonginputtext{
     border-bottom: dotted 1px dimgray;
 }
 
-.sheet-rolltemplate-invoc .sheet-dice-subheader, .sheet-rolltemplate-vecu .sheet-dice-subheader, .sheet-rolltemplate-sort .sheet-dice-subheader,
-.sheet-rolltemplate-formule .sheet-dice-subheader, .sheet-rolltemplate-opposition .sheet-dice-subheader, .sheet-rolltemplate-ka .sheet-dice-subheader,
-.sheet-rolltemplate-pavane .sheet-dice-subheader, .sheet-rolltemplate-opposition .sheet-dice-subheader, .sheet-rolltemplate-ka .sheet-dice-subheader,
+.sheet-rolltemplate-invoc-nephilim .sheet-dice-subheader, .sheet-rolltemplate-vecu .sheet-dice-subheader, .sheet-rolltemplate-sort-nephilim .sheet-dice-subheader,
+.sheet-rolltemplate-invoc-selenim .sheet-dice-subheader, .sheet-rolltemplate-vecu .sheet-dice-subheader, .sheet-rolltemplate-sort-selenim .sheet-dice-subheader,
+.sheet-rolltemplate-formule .sheet-dice-subheader, .sheet-rolltemplate-opposition-nephilim .sheet-dice-subheader, .sheet-rolltemplate-ka .sheet-dice-subheader,
+.sheet-rolltemplate-pavane .sheet-dice-subheader, .sheet-rolltemplate-opposition-selenim .sheet-dice-subheader, .sheet-rolltemplate-ka .sheet-dice-subheader,
 .sheet-rolltemplate-imago .sheet-dice-subheader {
     font-size: 1.2em;
     margin: 5px auto;
     text-align: center;
     line-height: 20px;
 }
-.sheet-rolltemplate-invoc .sheet-dice-bold, .sheet-rolltemplate-vecu .sheet-dice-bold,.sheet-rolltemplate-sort .sheet-dice-bold,
-.sheet-rolltemplate-formule .sheet-dice-bold, .sheet-rolltemplate-opposition .sheet-dice-bold, .sheet-rolltemplate-ka .sheet-dice-bold,
-.sheet-rolltemplate-pavane .sheet-dice-bold, .sheet-rolltemplate-opposition .sheet-dice-bold, .sheet-rolltemplate-ka .sheet-dice-bold,
+
+.sheet-rolltemplate-invoc-nephilim .sheet-dice-bold, .sheet-rolltemplate-vecu .sheet-dice-bold,.sheet-rolltemplate-sort-nephilim .sheet-dice-bold,
+.sheet-rolltemplate-invoc-selenim .sheet-dice-bold, .sheet-rolltemplate-vecu .sheet-dice-bold,.sheet-rolltemplate-sort-selenim .sheet-dice-bold,
+.sheet-rolltemplate-formule .sheet-dice-bold, .sheet-rolltemplate-opposition-nephilim .sheet-dice-bold, .sheet-rolltemplate-ka .sheet-dice-bold,
+.sheet-rolltemplate-pavane .sheet-dice-bold, .sheet-rolltemplate-opposition-selenim .sheet-dice-bold, .sheet-rolltemplate-ka .sheet-dice-bold,
 .sheet-rolltemplate-imago .sheet-dice-bold {
     font-weight: bolder;
     text-transform: capitalize;
 }
 
-.sheet-rolltemplate-invoc .sheet-dice-main, .sheet-rolltemplate-vecu .sheet-dice-main, .sheet-rolltemplate-sort .sheet-dice-main,
-.sheet-rolltemplate-formule .sheet-dice-main, .sheet-rolltemplate-opposition .sheet-dice-main, .sheet-rolltemplate-ka .sheet-dice-main,
-.sheet-rolltemplate-pavane .sheet-dice-main, .sheet-rolltemplate-opposition .sheet-dice-main, .sheet-rolltemplate-ka .sheet-dice-main,
+.sheet-rolltemplate-invoc-nephilim .sheet-dice-main, .sheet-rolltemplate-vecu .sheet-dice-main, .sheet-rolltemplate-sort-nephilim .sheet-dice-main,
+.sheet-rolltemplate-invoc-selenim .sheet-dice-main, .sheet-rolltemplate-vecu .sheet-dice-main, .sheet-rolltemplate-sort-selenim .sheet-dice-main,
+.sheet-rolltemplate-formule .sheet-dice-main, .sheet-rolltemplate-opposition-nephilim .sheet-dice-main, .sheet-rolltemplate-ka .sheet-dice-main,
+.sheet-rolltemplate-pavane .sheet-dice-main, .sheet-rolltemplate-opposition-selenim .sheet-dice-main, .sheet-rolltemplate-ka .sheet-dice-main,
 .sheet-rolltemplate-imago .sheet-dice-main {
     border-top: dotted 1px dimgray;
     margin-top: 5px;
 }
 
-.sheet-rolltemplate-opposition .sheet-dice-main {
+.sheet-rolltemplate-opposition-nephilim .sheet-dice-main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
 }
-.sheet-rolltemplate-invoc .sheet-dice-effect, .sheet-rolltemplate-sort .sheet-dice-effect, .sheet-rolltemplate-formule .sheet-dice-effect,
+
+.sheet-rolltemplate-opposition-selenim .sheet-dice-main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.sheet-rolltemplate-invoc-nephilim .sheet-dice-effect, .sheet-rolltemplate-sort-nephilim .sheet-dice-effect, .sheet-rolltemplate-formule .sheet-dice-effect,
+.sheet-rolltemplate-invoc-selenim .sheet-dice-effect, .sheet-rolltemplate-sort-selenim .sheet-dice-effect, .sheet-rolltemplate-formule .sheet-dice-effect,
 .sheet-rolltemplate-pavane .sheet-dice-effect {
     margin: 5px auto;
     border-top: dotted 1px dimgray;
     padding: 5px 0;
 }
-.sheet-rolltemplate-invoc .sheet-dice-roll, .sheet-rolltemplate-vecu .sheet-dice-roll, .sheet-rolltemplate-sort .sheet-dice-roll,
-.sheet-rolltemplate-formule .sheet-dice-roll, .sheet-rolltemplate-opposition .sheet-dice-roll, .sheet-rolltemplate-ka .sheet-dice-roll,
-.sheet-rolltemplate-pavane .sheet-dice-roll, .sheet-rolltemplate-opposition .sheet-dice-roll, .sheet-rolltemplate-ka .sheet-dice-roll,
+
+.sheet-rolltemplate-invoc-nephilim .sheet-dice-roll, .sheet-rolltemplate-vecu .sheet-dice-roll, .sheet-rolltemplate-sort-nephilim .sheet-dice-roll,
+.sheet-rolltemplate-invoc-selenim .sheet-dice-roll, .sheet-rolltemplate-vecu .sheet-dice-roll, .sheet-rolltemplate-sort-selenim .sheet-dice-roll,
+.sheet-rolltemplate-formule .sheet-dice-roll, .sheet-rolltemplate-opposition-nephilim .sheet-dice-roll, .sheet-rolltemplate-ka .sheet-dice-roll,
+.sheet-rolltemplate-pavane .sheet-dice-roll, .sheet-rolltemplate-opposition-selenim .sheet-dice-roll, .sheet-rolltemplate-ka .sheet-dice-roll,
 .sheet-rolltemplate-imago .sheet-dice-roll {
     text-align: center;
     line-height: 22px;
 }
 
-.sheet-rolltemplate-invoc .sheet-dice-result-ko,.sheet-rolltemplate-vecu .sheet-dice-result-ko, .sheet-rolltemplate-sort .sheet-dice-result-ko,
-.sheet-rolltemplate-formule .sheet-dice-result-ko, .sheet-rolltemplate-opposition .sheet-dice-result-ko, .sheet-rolltemplate-ka .sheet-dice-result-ko,
-.sheet-rolltemplate-pavane .sheet-dice-result-ko, .sheet-rolltemplate-opposition .sheet-dice-result-ko, .sheet-rolltemplate-ka .sheet-dice-result-ko,
+.sheet-rolltemplate-invoc-nephilim .sheet-dice-result-ko,.sheet-rolltemplate-vecu .sheet-dice-result-ko, .sheet-rolltemplate-sort-nephilim .sheet-dice-result-ko,
+.sheet-rolltemplate-invoc-selenim .sheet-dice-result-ko,.sheet-rolltemplate-vecu .sheet-dice-result-ko, .sheet-rolltemplate-sort-selenim .sheet-dice-result-ko,
+.sheet-rolltemplate-formule .sheet-dice-result-ko, .sheet-rolltemplate-opposition-nephilim .sheet-dice-result-ko, .sheet-rolltemplate-ka .sheet-dice-result-ko,
+.sheet-rolltemplate-pavane .sheet-dice-result-ko, .sheet-rolltemplate-opposition-selenim .sheet-dice-result-ko, .sheet-rolltemplate-ka .sheet-dice-result-ko,
 .sheet-rolltemplate-imago .sheet-dice-result-ko {
     font-weight: bold;
     text-align: center;
@@ -1272,9 +1289,10 @@ input[type=text].sheet-verylonginputtext{
     padding: 4px;
 }
 
-.sheet-rolltemplate-invoc .sheet-dice-result-ok, .sheet-rolltemplate-vecu .sheet-dice-result-ok, .sheet-rolltemplate-sort .sheet-dice-result-ok,
-.sheet-rolltemplate-formule .sheet-dice-result-ok, .sheet-rolltemplate-opposition .sheet-dice-result-ok, .sheet-rolltemplate-ka .sheet-dice-result-ok,
-.sheet-rolltemplate-pavane .sheet-dice-result-ok, .sheet-rolltemplate-opposition .sheet-dice-result-ok, .sheet-rolltemplate-ka .sheet-dice-result-ok,
+.sheet-rolltemplate-invoc-nephilim .sheet-dice-result-ok, .sheet-rolltemplate-vecu .sheet-dice-result-ok, .sheet-rolltemplate-sort-nephilim .sheet-dice-result-ok,
+.sheet-rolltemplate-invoc-selenim .sheet-dice-result-ok, .sheet-rolltemplate-vecu .sheet-dice-result-ok, .sheet-rolltemplate-sort-selenim .sheet-dice-result-ok,
+.sheet-rolltemplate-formule .sheet-dice-result-ok, .sheet-rolltemplate-opposition-nephilim .sheet-dice-result-ok, .sheet-rolltemplate-ka .sheet-dice-result-ok,
+.sheet-rolltemplate-pavane .sheet-dice-result-ok, .sheet-rolltemplate-opposition-selenim .sheet-dice-result-ok, .sheet-rolltemplate-ka .sheet-dice-result-ok,
 .sheet-rolltemplate-imago .sheet-dice-result-ok {
     font-weight: bold;
     text-align: center;
@@ -1283,9 +1301,10 @@ input[type=text].sheet-verylonginputtext{
     padding: 4px;
 }
 
-.sheet-rolltemplate-invoc .inlinerollresult, .sheet-rolltemplate-vecu .inlinerollresult, .sheet-rolltemplate-sort .inlinerollresult,
-.sheet-rolltemplate-formule .inlinerollresult, .sheet-rolltemplate-opposition .inlinerollresult, .sheet-rolltemplate-ka .inlinerollresult,
-.sheet-rolltemplate-pavane .inlinerollresult, .sheet-rolltemplate-opposition .inlinerollresult, .sheet-rolltemplate-ka .inlinerollresult,
+.sheet-rolltemplate-invoc-nephilim .inlinerollresult, .sheet-rolltemplate-vecu .inlinerollresult, .sheet-rolltemplate-sort-nephilim .inlinerollresult,
+.sheet-rolltemplate-invoc-selenim .inlinerollresult, .sheet-rolltemplate-vecu .inlinerollresult, .sheet-rolltemplate-sort-selenim .inlinerollresult,
+.sheet-rolltemplate-formule .inlinerollresult, .sheet-rolltemplate-opposition-nephilim .inlinerollresult, .sheet-rolltemplate-ka .inlinerollresult,
+.sheet-rolltemplate-pavane .inlinerollresult, .sheet-rolltemplate-opposition-selenim .inlinerollresult, .sheet-rolltemplate-ka .inlinerollresult,
 .sheet-rolltemplate-imago .inlinerollresult {
     display: inline-block;
     min-width: 1.5em;
@@ -1295,42 +1314,60 @@ input[type=text].sheet-verylonginputtext{
     background: transparent;
 }
 
-.sheet-rolltemplate-invoc .inlinerollresult.fullfail, .sheet-rolltemplate-vecu .inlinerollresult.fullfail, .sheet-rolltemplate-sort .inlinerollresult.fullfail,
-.sheet-rolltemplate-formule .inlinerollresult.fullfail, .sheet-rolltemplate-opposition .inlinerollresult.fullfail, .sheet-rolltemplate-ka .inlinerollresult.fullfail,
-.sheet-rolltemplate-pavane .inlinerollresult.fullfail, .sheet-rolltemplate-opposition .inlinerollresult.fullfail, .sheet-rolltemplate-ka .inlinerollresult.fullfail,
+.sheet-rolltemplate-invoc-nephilim .inlinerollresult.fullfail, .sheet-rolltemplate-vecu .inlinerollresult.fullfail, .sheet-rolltemplate-sort-nephilim .inlinerollresult.fullfail,
+.sheet-rolltemplate-invoc-selenim .inlinerollresult.fullfail, .sheet-rolltemplate-vecu .inlinerollresult.fullfail, .sheet-rolltemplate-sort-selenim .inlinerollresult.fullfail,
+.sheet-rolltemplate-formule .inlinerollresult.fullfail, .sheet-rolltemplate-opposition-nephilim .inlinerollresult.fullfail, .sheet-rolltemplate-ka .inlinerollresult.fullfail,
+.sheet-rolltemplate-pavane .inlinerollresult.fullfail, .sheet-rolltemplate-opposition-selenim .inlinerollresult.fullfail, .sheet-rolltemplate-ka .inlinerollresult.fullfail,
 .sheet-rolltemplate-ka .inlinerollresult.fullfail {
     border: none;
 }
 
-.sheet-rolltemplate-opposition .sheet-dice-col2 {
+.sheet-rolltemplate-opposition-nephilim .sheet-dice-col2 {
     display: inline-block;
     text-align: center;
     margin-top: 5px;
     line-height: 20px;
 }
 
-.sheet-rolltemplate-opposition .sheet-dice-col-inter {
+.sheet-rolltemplate-opposition-selenim .sheet-dice-col2 {
+    display: inline-block;
+    text-align: center;
+    margin-top: 5px;
+    line-height: 20px;
+}
+
+.sheet-rolltemplate-opposition-nephilim .sheet-dice-col-inter {
     display: inline-block;
     width: 20px;
     text-align: center;
 }
 
-.sheet-rolltemplate-invoc .sheet-bg-invoc, .sheet-rolltemplate-vecu .sheet-bg-vecu, .sheet-rolltemplate-sort .sheet-bg-sort,
-.sheet-rolltemplate-formule .sheet-bg-formule, .sheet-rolltemplate-opposition .sheet-bg-opposition, .sheet-rolltemplate-ka .sheet-bg-ka,
-.sheet-rolltemplate-pavane .sheet-bg-pavane, .sheet-rolltemplate-opposition .sheet-bg-opposition, .sheet-rolltemplate-ka .sheet-bg-ka,
+.sheet-rolltemplate-opposition-selenim .sheet-dice-col-inter {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+.sheet-rolltemplate-invoc-nephilim .sheet-bg-invoc, .sheet-rolltemplate-vecu .sheet-bg-vecu, .sheet-rolltemplate-sort-nephilim .sheet-bg-sort,
+.sheet-rolltemplate-invoc-selenim .sheet-bg-invoc, .sheet-rolltemplate-vecu .sheet-bg-vecu, .sheet-rolltemplate-sort-selenim .sheet-bg-sort,
+.sheet-rolltemplate-formule .sheet-bg-formule, .sheet-rolltemplate-opposition-nephilim .sheet-bg-opposition, .sheet-rolltemplate-ka .sheet-bg-ka,
+.sheet-rolltemplate-pavane .sheet-bg-pavane, .sheet-rolltemplate-opposition-selenim .sheet-bg-opposition, .sheet-rolltemplate-ka .sheet-bg-ka,
 .sheet-rolltemplate-imago .sheet-bg-imago {
     background-image: url("https://raw.githubusercontent.com/rwanoux/roll20-character-sheets/master/nephilimV5-vf/backgrd.png");
     background-size: cover;
 }
 
 /* Suppression succès critique - jet de 100 */
-.sheet-rolltemplate-opposition .inlinerollresult.fullcrit,
+.sheet-rolltemplate-opposition-nephilim .inlinerollresult.fullcrit,
+.sheet-rolltemplate-opposition-selenim .inlinerollresult.fullcrit,
 .sheet-rolltemplate-formule .inlinerollresult.fullcrit,
 .sheet-rolltemplate-pavane .inlinerollresult.fullcrit,
-.sheet-rolltemplate-sort .inlinerollresult.fullcrit,
+.sheet-rolltemplate-sort-nephilim .inlinerollresult.fullcrit,
+.sheet-rolltemplate-sort-selenim .inlinerollresult.fullcrit,
 .sheet-rolltemplate-vecu .inlinerollresult.fullcrit,
 .sheet-rolltemplate-ka .inlinerollresult.fullcrit,
-.sheet-rolltemplate-invoc .inlinerollresult.fullcrit,
+.sheet-rolltemplate-invoc-nephilim .inlinerollresult.fullcrit,
+.sheet-rolltemplate-invoc-selenim .inlinerollresult.fullcrit,
 .sheet-rolltemplate-imago .inlinerollresult.fullcrit {
     border: none !important;
 }
