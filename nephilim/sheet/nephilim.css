@@ -709,20 +709,15 @@ div.sheet-tab-content, .sheet-tab-optionnal {
     display: none;
 }
 
-
-
-
-
+.sheet-tab-optionnal2,
+.sheet-tab-optionnal3,
 input.sheet-is-nephilim:checked~.sheet-tab-optionnal1,
-input.sheet-is-nephilim:checked~.sheet-tab-optionnal2,
-input.sheet-is-nephilim:checked~.sheet-tab-optionnal3,
 input.sheet-is-nephilim:checked~input.sheet-practice-mag:checked~.sheet-tab-optionnal4,
 input.sheet-is-nephilim:checked~input.sheet-practice-kabb:checked~.sheet-tab-optionnal5,
 input.sheet-is-nephilim:checked~input.sheet-practice-alch:checked~.sheet-tab-optionnal6,
 input.sheet-is-nephilim:checked~.sheet-tab-optionnal7,
+input.sheet-is-selenim:checked~.sheet-tab-optionnal7,
 input.sheet-is-selenim:checked~.sheet-tab-optionnal8,
-input.sheet-is-selenim:checked~.sheet-tab-optionnal9,
-input.sheet-is-selenim:checked~.sheet-tab-optionnal10,
 input.sheet-is-selenim:checked~input.sheet-practice-necro:checked~.sheet-tab-optionnal11,
 input.sheet-is-selenim:checked~input.sheet-practice-kabbN:checked~.sheet-tab-optionnal12,
 input.sheet-is-selenim:checked~input.sheet-practice-imago:checked~.sheet-tab-optionnal13 {
@@ -739,8 +734,6 @@ input.sheet-tab7:checked~div.sheet-tab7,
 input.sheet-tab8:checked~div.sheet-tab8,
 input.sheet-tab9:checked~div.sheet-tab9,
 input.sheet-tab10:checked~div.sheet-tab10,
-input.sheet-tab11:checked~div.sheet-tab11,
-input.sheet-tab12:checked~div.sheet-tab12,
 input.sheet-tab13:checked~div.sheet-tab13,
 input.sheet-tab14:checked~div.sheet-tab14,
 input.sheet-tab15:checked~div.sheet-tab15 {
