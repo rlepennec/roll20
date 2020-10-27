@@ -1196,6 +1196,8 @@ input[type=text].sheet-verylonginputtext{
 .sheet-rolltemplate-formule .sheet-dice-box h1, .sheet-rolltemplate-opposition-nephilim .sheet-dice-box h1, .sheet-rolltemplate-ka .sheet-dice-box h1,
 .sheet-rolltemplate-pavane .sheet-dice-box h1, .sheet-rolltemplate-opposition-selenim .sheet-dice-box h1, .sheet-rolltemplate-ka .sheet-dice-box h1,
 .sheet-rolltemplate-imago .sheet-dice-box h1 {
+    color: rgb(233, 223, 151);
+    background-color: rgb(63, 32, 33);
     font-size: 1.4em;
     text-align: center;
     letter-spacing: 2px;    
